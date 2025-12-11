@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'electric-blue': '#3b82f6',
+                        'soft-orange': '#fb923c',
+                        'off-white': '#fafafa',
+                        'light-gray': '#f1f5f9',
+                        'border-gray': '#e2e8f0'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>::-webkit-scrollbar { display: none;}</style>
+</head>
+<body class="font-inter bg-white text-gray-900 overflow-x-hidden">
+
+<!-- Header -->
+<header id="header" class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-b border-border-gray z-50">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-8">
+            <div class="text-2xl font-bold text-gray-900">Clentro</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#services" class="text-gray-600 hover:text-electric-blue transition-colors">Services</a>
+                <a href="#process" class="text-gray-600 hover:text-electric-blue transition-colors">Process</a>
+                <a href="#products" class="text-gray-600 hover:text-electric-blue transition-colors">Products</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-electric-blue transition-colors">Portfolio</a>
+            </div>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="hidden md:block text-gray-600 hover:text-electric-blue transition-colors">Contact</button>
+            <button class="bg-electric-blue text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all">Get Started</button>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="hero" class="relative pt-32 pb-20 px-6 bg-gradient-to-br from-white to-off-white overflow-hidden">
+    <div class="max-w-7xl mx-auto text-center relative z-10">
+        <div class="animate-fade-in">
+            <h1 class="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                Build. Ship. <span class="text-electric-blue">Fast.</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+                We build and market SaaS products that scale. From concept to launch, we deliver ultra-modern solutions that drive growth and exceed expectations.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-electric-blue text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 hover:scale-105 transition-all shadow-lg">
+                    Start Your Project
+                </button>
+                <button class="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-electric-blue hover:text-electric-blue transition-all">
+                    View Our Work
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Animated Background Shapes -->
+    <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-electric-blue/20 to-soft-orange/20 rounded-full blur-xl animate-pulse"></div>
+    <div class="absolute top-40 right-20 w-48 h-48 bg-gradient-to-br from-soft-orange/15 to-electric-blue/15 rounded-full blur-2xl animate-bounce"></div>
+    <div class="absolute bottom-20 left-1/4 w-24 h-24 bg-gradient-to-br from-electric-blue/25 to-transparent rounded-full blur-lg animate-ping"></div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-20 px-6 bg-off-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive solutions for modern SaaS development and growth</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 transition-all border border-border-gray group">
+                <div class="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-electric-blue/20 transition-colors">
+                    <i class="fas fa-code text-electric-blue text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">SaaS Development</h3>
+                <p class="text-gray-600 leading-relaxed">Full-stack development with modern frameworks and cloud-native architecture.</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 transition-all border border-border-gray group">
+                <div class="w-12 h-12 bg-soft-orange/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-soft-orange/20 transition-colors">
+                    <i class="fas fa-rocket text-soft-orange text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Product Launch</h3>
+                <p class="text-gray-600 leading-relaxed">Strategic go-to-market planning and execution for maximum impact.</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 transition-all border border-border-gray group">
+                <div class="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-electric-blue/20 transition-colors">
+                    <i class="fas fa-chart-line text-electric-blue text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Growth Marketing</h3>
+                <p class="text-gray-600 leading-relaxed">Data-driven marketing strategies that scale your user base efficiently.</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 transition-all border border-border-gray group">
+                <div class="w-12 h-12 bg-soft-orange/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-soft-orange/20 transition-colors">
+                    <i class="fas fa-shield-alt text-soft-orange text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Infrastructure</h3>
+                <p class="text-gray-600 leading-relaxed">Scalable cloud infrastructure and security implementations.</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 transition-all border border-border-gray group">
+                <div class="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-electric-blue/20 transition-colors">
+                    <i class="fas fa-users text-electric-blue text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Team Scaling</h3>
+                <p class="text-gray-600 leading-relaxed">Building and managing high-performance development teams.</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 transition-all border border-border-gray group">
+                <div class="w-12 h-12 bg-soft-orange/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-soft-orange/20 transition-colors">
+                    <i class="fas fa-cogs text-soft-orange text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Optimization</h3>
+                <p class="text-gray-600 leading-relaxed">Performance optimization and conversion rate improvements.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section id="process" class="py-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Process</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">A streamlined approach to delivering exceptional results</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="text-center group">
+                <div class="w-16 h-16 bg-electric-blue rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-white font-bold text-xl">1</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Discover & Plan</h3>
+                <p class="text-gray-600 leading-relaxed">We analyze your requirements, market position, and technical needs to create a comprehensive roadmap.</p>
+            </div>
+            
+            <div class="text-center group">
+                <div class="w-16 h-16 bg-soft-orange rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-white font-bold text-xl">2</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Build & Iterate</h3>
+                <p class="text-gray-600 leading-relaxed">Rapid development cycles with continuous feedback and improvements to ensure perfect product-market fit.</p>
+            </div>
+            
+            <div class="text-center group">
+                <div class="w-16 h-16 bg-electric-blue rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <span class="text-white font-bold text-xl">3</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Launch & Scale</h3>
+                <p class="text-gray-600 leading-relaxed">Strategic launch execution followed by data-driven optimization and scaling strategies.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section id="products" class="py-20 px-6 bg-off-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Products</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Successful SaaS products we've built and launched</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all border border-border-gray overflow-hidden group">
+                <div class="h-64 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/98094726b9-b2ad2fe1e3b6301f3a09.png" alt="modern SaaS dashboard interface with clean design, charts and analytics" />
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Analytics Pro</h3>
+                    <p class="text-gray-600 mb-4">Advanced analytics platform helping businesses make data-driven decisions with real-time insights.</p>
+                    <div class="flex items-center text-electric-blue font-semibold">
+                        <span>View Case Study</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all border border-border-gray overflow-hidden group">
+                <div class="h-64 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e305bed9b9-72cf922922fa8fddaa95.png" alt="project management SaaS interface with task boards and team collaboration features" />
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">TaskFlow</h3>
+                    <p class="text-gray-600 mb-4">Streamlined project management tool that helps teams collaborate efficiently and deliver projects on time.</p>
+                    <div class="flex items-center text-electric-blue font-semibold">
+                        <span>View Case Study</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Grid -->
+<section id="portfolio" class="py-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Portfolio</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">A selection of our recent projects and success stories</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all border border-border-gray overflow-hidden group">
+                <div class="h-48 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/91905bf9c6-9712f9dcb6257f527768.png" alt="fintech SaaS application interface with financial charts and payment features" />
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">FinTech Platform</h3>
+                    <p class="text-gray-600 text-sm">Payment processing solution</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all border border-border-gray overflow-hidden group">
+                <div class="h-48 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d8026d65a4-0ea4c24608978d02b1b3.png" alt="e-commerce SaaS dashboard with inventory management and sales analytics" />
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">E-commerce Suite</h3>
+                    <p class="text-gray-600 text-sm">Complete retail management</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all border border-border-gray overflow-hidden group">
+                <div class="h-48 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/c24b7dd2e7-2e362646fd177b4fa1ac.png" alt="healthcare SaaS interface with patient management and medical records" />
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">HealthTech Platform</h3>
+                    <p class="text-gray-600 text-sm">Patient management system</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="py-20 px-6 bg-gradient-to-r from-light-gray to-off-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Client Testimonials</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">What our clients say about working with us</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-border-gray">
+                <div class="flex items-center mb-6">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-900">Sarah Johnson</h4>
+                        <p class="text-gray-600 text-sm">CEO, TechStart</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 leading-relaxed">"Clentro transformed our idea into a market-leading SaaS product. Their expertise and speed were incredible."</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-border-gray">
+                <div class="flex items-center mb-6">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-900">Michael Chen</h4>
+                        <p class="text-gray-600 text-sm">Founder, DataFlow</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 leading-relaxed">"The team's technical excellence and strategic thinking helped us scale from zero to 10k users in 6 months."</p>
+            </div>
+        </div>
+        
+        <div class="flex justify-center items-center space-x-12 opacity-60">
+            <div class="text-gray-500 font-semibold">Stripe</div>
+            <div class="text-gray-500 font-semibold">Vercel</div>
+            <div class="text-gray-500 font-semibold">Linear</div>
+            <div class="text-gray-500 font-semibold">Notion</div>
+            <div class="text-gray-500 font-semibold">Figma</div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section id="cta" class="py-20 px-6 bg-gradient-to-r from-electric-blue to-blue-600">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Build Something Amazing?</h2>
+        <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Let's turn your SaaS idea into reality. Get started with a free consultation and see how we can help you build, ship, and scale fast.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button class="bg-white text-electric-blue px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 hover:scale-105 transition-all shadow-lg">
+                Start Your Project
+            </button>
+            <button class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all">
+                Schedule a Call
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer" class="py-16 px-6 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <div class="text-2xl font-bold mb-4">Clentro</div>
+                <p class="text-gray-400 leading-relaxed">Building the future of SaaS, one product at a time.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Services</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white transition-colors">SaaS Development</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Product Launch</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Growth Marketing</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Company</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Connect</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 Clentro. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+window.addEventListener('load', function() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('#services > div > div > div, #portfolio > div > div > div').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+});
+</script>
+
+</body>
+</html>
