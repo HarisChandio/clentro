@@ -32,11 +32,11 @@ const capabilities: CapabilityItem[] = [
   },
   {
     icon: "cpu",
-    title: "AI/ML Tool Integration",
-    description: "Integrate state-of-the-art AI capabilities into your products. GPT-4, UX Pilot, custom ML models, vector databases, and intelligent automation.",
+    title: "AI-Powered Development",
+    description: "We leverage cutting-edge AI tools like Cursor and Claude to accelerate development. Plus, we integrate GPT-4, custom ML models, and intelligent automation into your products.",
     features: [
-      "UX Pilot AI, UX Pilot AI API integration",
-      "Custom ML model training & deployment",
+      "AI-accelerated development with Cursor & Claude",
+      "GPT-4, Claude API integration",
       "Vector databases (Pinecone, Weaviate)",
       "RAG systems & semantic search"
     ]

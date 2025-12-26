@@ -34,7 +34,7 @@ export default function HeroSection() {
 
           {/* Description */}
           <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
-            Custom software solutions engineered for the AI era. We transform complex ideas into production-ready products at unprecedented speed.
+            Custom software solutions engineered for the AI era. We leverage AI-powered tools like Cursor and Claude to transform complex ideas into production-ready products at unprecedented speed.
           </p>
 
           {/* CTA Buttons */}
@@ -102,14 +102,14 @@ export default function HeroSection() {
         </div>
 
         {/* Right Content - 3D Wireframe */}
-        <div className="flex items-center justify-center">
+        {/* <div className="flex items-center justify-center">
           <div className="relative w-full max-w-md aspect-square">
             <svg 
               viewBox="0 0 400 300" 
               className="w-full h-full"
               style={{ filter: 'drop-shadow(0 20px 40px rgba(255, 95, 0, 0.1))' }}
             >
-              {/* Create a wireframe grid pattern */}
+             
               <defs>
                 <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
                   <path 
@@ -121,7 +121,7 @@ export default function HeroSection() {
                 </pattern>
               </defs>
               
-              {/* Perspective plane */}
+             
               <g transform="translate(200, 150) rotate(-15) skewY(15)">
                 <rect 
                   x="-150" 
@@ -132,10 +132,10 @@ export default function HeroSection() {
                   stroke={BRAND_COLOR} 
                   strokeWidth="2"
                 />
-                {/* Diagonal lines for depth */}
+                
                 <line x1="-150" y1="-100" x2="150" y2="100" stroke={BRAND_COLOR} strokeWidth="0.5" />
                 <line x1="150" y1="-100" x2="-150" y2="100" stroke={BRAND_COLOR} strokeWidth="0.5" />
-                {/* Additional detail lines */}
+               
                 {Array.from({ length: 15 }).map((_, i) => (
                   <line 
                     key={`h-${i}`}
@@ -160,8 +160,8 @@ export default function HeroSection() {
                 ))}
               </g>
             </svg>
-          </div>
-        </div>
+          </div> 
+        </div> */}
       </div>
     </section>
   );
