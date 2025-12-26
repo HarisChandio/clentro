@@ -4,10 +4,27 @@ const BRAND_COLOR = "#FF5F00";
 
 export default function HeroSection() {
   return (
-    <section className="container mx-auto px-6 py-8 md:py-8">
-      <div className="grid md:grid-cols-2 gap-12 items-center">
-        {/* Left Content */}
-        <div className="space-y-8">
+    <section className="relative min-h-screen w-full overflow-hidden">
+      {/* Video Background - Hidden on mobile */}
+      <div className="absolute inset-0 w-full h-full hidden md:block">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/website_loop_animation.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay to make content more readable */}
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
+
+      {/* Content Overlay */}
+      <div className="relative z-10 container mx-auto px-6 py-8 md:py-16 min-h-screen flex items-center">
+        <div className="max-w-3xl">
+          {/* Content */}
+          <div className="space-y-8  md:bg-none p-8 md:p-12 rounded-2xl backdrop-blur-sm">
           {/* Badge */}
           <div className="inline-block">
             <span 
@@ -100,68 +117,7 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-
-        {/* Right Content - 3D Wireframe */}
-        {/* <div className="flex items-center justify-center">
-          <div className="relative w-full max-w-md aspect-square">
-            <svg 
-              viewBox="0 0 400 300" 
-              className="w-full h-full"
-              style={{ filter: 'drop-shadow(0 20px 40px rgba(255, 95, 0, 0.1))' }}
-            >
-             
-              <defs>
-                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <path 
-                    d="M 20 0 L 0 0 0 20" 
-                    fill="none" 
-                    stroke={BRAND_COLOR} 
-                    strokeWidth="0.5"
-                  />
-                </pattern>
-              </defs>
-              
-             
-              <g transform="translate(200, 150) rotate(-15) skewY(15)">
-                <rect 
-                  x="-150" 
-                  y="-100" 
-                  width="300" 
-                  height="200" 
-                  fill="url(#grid)" 
-                  stroke={BRAND_COLOR} 
-                  strokeWidth="2"
-                />
-                
-                <line x1="-150" y1="-100" x2="150" y2="100" stroke={BRAND_COLOR} strokeWidth="0.5" />
-                <line x1="150" y1="-100" x2="-150" y2="100" stroke={BRAND_COLOR} strokeWidth="0.5" />
-               
-                {Array.from({ length: 15 }).map((_, i) => (
-                  <line 
-                    key={`h-${i}`}
-                    x1="-150" 
-                    y1={-100 + i * 15} 
-                    x2="150" 
-                    y2={-100 + i * 15} 
-                    stroke={BRAND_COLOR} 
-                    strokeWidth="0.5"
-                  />
-                ))}
-                {Array.from({ length: 20 }).map((_, i) => (
-                  <line 
-                    key={`v-${i}`}
-                    x1={-150 + i * 15} 
-                    y1="-100" 
-                    x2={-150 + i * 15} 
-                    y2="100" 
-                    stroke={BRAND_COLOR} 
-                    strokeWidth="0.5"
-                  />
-                ))}
-              </g>
-            </svg>
-          </div> 
-        </div> */}
+        </div>
       </div>
     </section>
   );
