@@ -14,7 +14,7 @@ export default function HeroSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/assets/website_loop_animation.mp4" type="video/mp4" />
+          <source src="/assets/video_2.mp4" type="video/mp4" />
         </video>
         {/* Overlay to make content more readable */}
         <div className="absolute inset-0 bg-black/20"></div>
