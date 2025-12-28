@@ -238,7 +238,7 @@ export default function ContactForm() {
         </form>
 
         {/* Contact Options */}
-        <div className="grid md:grid-cols-3 gap-8 mt-16">
+        {/* <div className="grid  gap-8 mt-16 ">
           <div className="text-center">
             <div 
               className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
@@ -257,9 +257,9 @@ export default function ContactForm() {
             >
               contact@clentro.io
             </a>
-          </div>
+          </div> */}
 
-          <div className="text-center">
+          {/* <div className="text-center">
             <div 
               className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
               style={{ backgroundColor: BRAND_COLOR }}
@@ -276,9 +276,9 @@ export default function ContactForm() {
             >
               Book a free consultation
             </a>
-          </div>
+          </div> */}
 
-          <div className="text-center">
+          {/* <div className="text-center">
             <div 
               className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
               style={{ backgroundColor: BRAND_COLOR }}
@@ -295,8 +295,8 @@ export default function ContactForm() {
             >
               Join our community
             </a>
-          </div>
-        </div>
+          </div> */}
+        
       </div>
     </section>
   );

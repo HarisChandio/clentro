@@ -41,7 +41,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`container mx-auto px-6 py-6 sticky top-0 z-50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+    <header className={`container mx-auto px-6  py-3 md:py-6 sticky top-0 z-50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="flex items-center justify-between">
         {/* Logo Space - User will add logo */}
         <Link href="/" className="flex items-center">
@@ -81,7 +81,7 @@ export default function Header() {
         </nav>
 
         {/* CTA Button */}
-        <Link href="#contact" onClick={(e) => handleSmoothScroll(e, 'contact')}>
+        <Link href="#contact" onClick={(e) => handleSmoothScroll(e, 'contact')} className="hidden md:block">
           <Button 
             className="rounded-full px-8 font-semibold text-sm"
             style={{ backgroundColor: BRAND_COLOR }}

@@ -86,47 +86,131 @@ export default function ShipFastMethodology() {
       </div>
 
       {/* Phases Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-        {phases.map((phase, index) => (
-          <div 
-            key={index}
-            className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-gray-300 transition-all"
-          >
-            <h3 
-              className="text-5xl font-black mb-4"
-              style={{ color: BRAND_COLOR }}
+      <div className="mb-16">
+        {/* Mobile: Horizontal Slider */}
+        <div className="md:hidden overflow-x-auto pb-4 -mx-6 px-6 scrollbar-hide">
+          <div className="flex gap-4 w-max">
+            {phases.map((phase, index) => (
+              <div 
+                key={index}
+                className="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:border-gray-300 transition-all w-[280px] flex-shrink-0"
+              >
+                <h3 
+                  className="text-4xl font-black mb-3"
+                  style={{ color: BRAND_COLOR }}
+                >
+                  {phase.number}
+                </h3>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">
+                  {phase.title}
+                </h4>
+                <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+                  {phase.description}
+                </p>
+                
+                <div>
+                  <span 
+                    className="text-xs font-bold tracking-wider mb-3 block"
+                    style={{ color: BRAND_COLOR }}
+                  >
+                    DELIVERABLES
+                  </span>
+                  <ul className="space-y-2">
+                    {phase.deliverables.map((item, idx) => (
+                      <li key={idx} className="text-xs text-gray-700 flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {phases.map((phase, index) => (
+            <div 
+              key={index}
+              className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-gray-300 transition-all"
             >
-              {phase.number}
-            </h3>
-            <h4 className="text-xl font-bold text-gray-900 mb-3">
-              {phase.title}
-            </h4>
-            <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-              {phase.description}
-            </p>
-            
-            <div>
-              <span 
-                className="text-xs font-bold tracking-wider mb-3 block"
+              <h3 
+                className="text-5xl font-black mb-4"
                 style={{ color: BRAND_COLOR }}
               >
-                DELIVERABLES
-              </span>
-              <ul className="space-y-2">
-                {phase.deliverables.map((item, idx) => (
-                  <li key={idx} className="text-xs text-gray-700 flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+                {phase.number}
+              </h3>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">
+                {phase.title}
+              </h4>
+              <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+                {phase.description}
+              </p>
+              
+              <div>
+                <span 
+                  className="text-xs font-bold tracking-wider mb-3 block"
+                  style={{ color: BRAND_COLOR }}
+                >
+                  DELIVERABLES
+                </span>
+                <ul className="space-y-2">
+                  {phase.deliverables.map((item, idx) => (
+                    <li key={idx} className="text-xs text-gray-700 flex items-start">
+                      <span className="mr-2">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Metrics */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      {/* Mobile: 2 items on top, 1 centered below */}
+      <div className="md:hidden">
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          {metrics.slice(0, 2).map((metric, index) => (
+            <div key={index} className="text-center">
+              <div 
+                className="text-3xl font-black mb-2"
+                style={{ color: BRAND_COLOR }}
+              >
+                {metric.value}
+              </div>
+              <div className="text-sm font-bold text-gray-900 mb-2">
+                {metric.label}
+              </div>
+              <p className="text-xs text-gray-600">
+                {metric.description}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center">
+          <div className="text-center max-w-[180px]">
+            <div 
+              className="text-3xl font-black mb-2"
+              style={{ color: BRAND_COLOR }}
+            >
+              {metrics[2].value}
+            </div>
+            <div className="text-sm font-bold text-gray-900 mb-2">
+              {metrics[2].label}
+            </div>
+            <p className="text-xs text-gray-600">
+              {metrics[2].description}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop: Grid */}
+      <div className="hidden md:grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         {metrics.map((metric, index) => (
           <div key={index} className="text-center">
             <div 
