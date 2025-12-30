@@ -1,244 +1,216 @@
 "use client";
 
 import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 const BRAND_COLOR = "#FF5F00";
 
-export default function ContactForm() {
+export default function ContactSection() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     company: "",
-    budgetRange: "",
     projectType: "",
-    projectDescription: ""
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null;
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | null;
     message: string;
-  }>({ type: null, message: '' });
+  }>({ type: null, message: "" });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const projectTypes = ["SaaS", "Web App", "Mobile", "AI"];
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async () => {
     setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: '' });
+    setStatus({ type: null, message: "" });
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        setSubmitStatus({
-          type: 'success',
-          message: 'Thank you! We\'ll respond within 24 hours.',
+        setStatus({
+          type: "success",
+          message: "Thank you! We'll respond within 24 hours.",
         });
-        // Reset form
         setFormData({
           fullName: "",
           email: "",
           company: "",
-          budgetRange: "",
           projectType: "",
-          projectDescription: ""
+          message: "",
         });
       } else {
         const error = await response.json();
-        setSubmitStatus({
-          type: 'error',
-          message: error.error || 'Failed to submit. Please try again.',
+        setStatus({
+          type: "error",
+          message: error.error || "Failed to submit. Please try again.",
         });
       }
-    } catch (error) {
-      setSubmitStatus({
-        type: 'error',
-        message: 'Network error. Please try again.',
+    } catch {
+      setStatus({
+        type: "error",
+        message: "Network error. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
   return (
-    <section className="container mx-auto px-6 py-16 md:py-24">
-      <div className="max-w-3xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <span 
-            className="text-xs font-bold tracking-wider px-4 py-2 rounded-full inline-block mb-6"
-            style={{ backgroundColor: BRAND_COLOR, color: 'white' }}
-          >
-            GET IN TOUCH
-          </span>
-          <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-4">
-            Start Your Project
-          </h2>
-          <p className="text-lg text-gray-600">
-            Tell us about your idea. We'll respond within 24 hours with a project proposal.
-          </p>
-        </div>
+    <section className="relative overflow-hidden py-10 bg-neutral-50">
+      {/* Radial Backgrounds */}
+      <div className="pointer-events-none absolute inset-0">
+        {/* <div
+          className="absolute top-10 -left-40 w-[520px] h-[520px] rounded-full blur-3xl opacity-30"
+          style={{ backgroundColor: BRAND_COLOR }}
+        />
+        <div className="absolute bottom-0 right-0 w-[420px] h-[420px] rounded-full bg-orange-500 blur-3xl opacity-40" /> */}
+      </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="bg-gray-50 rounded-3xl p-8 md:p-12 space-y-6">
-          {/* Name and Email Row */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="fullName" className="block text-sm font-semibold text-gray-900 mb-2">
-                Full Name <span style={{ color: BRAND_COLOR }}>*</span>
-              </label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                required
-                placeholder="John Doe"
-                value={formData.fullName}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-0 bg-white"
-                style={{ focusRingColor: BRAND_COLOR }}
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-                Email <span style={{ color: BRAND_COLOR }}>*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="john@company.com"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-0 bg-white"
-              />
-            </div>
-          </div>
-
-          {/* Company and Budget Row */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="company" className="block text-sm font-semibold text-gray-900 mb-2">
-                Company
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                placeholder="Your Company"
-                value={formData.company}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-0 bg-white"
-              />
-            </div>
-            <div>
-              <label htmlFor="budgetRange" className="block text-sm font-semibold text-gray-900 mb-2">
-                Budget Range
-              </label>
-              <select
-                id="budgetRange"
-                name="budgetRange"
-                value={formData.budgetRange}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-0 bg-white text-gray-600"
-              >
-                <option value="">Select budget</option>
-                <option value="10k-25k">$10k - $25k</option>
-                <option value="25k-50k">$25k - $50k</option>
-                <option value="50k-100k">$50k - $100k</option>
-                <option value="100k+">$100k+</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Project Type */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-3">
-              Project Type <span style={{ color: BRAND_COLOR }}>*</span>
-            </label>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {['SaaS', 'Web App', 'Mobile', 'AI/ML'].map((type) => (
-                <label
-                  key={type}
-                  className="flex items-center space-x-2 cursor-pointer"
-                >
-                  <input
-                    type="radio"
-                    name="projectType"
-                    value={type}
-                    checked={formData.projectType === type}
-                    onChange={handleChange}
-                    className="w-4 h-4 accent-orange-500"
-                    style={{ accentColor: BRAND_COLOR }}
-                  />
-                  <span className="text-sm text-gray-700">{type}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {/* Project Description */}
-          <div>
-            <label htmlFor="projectDescription" className="block text-sm font-semibold text-gray-900 mb-2">
-              Project Description <span style={{ color: BRAND_COLOR }}>*</span>
-            </label>
-            <textarea
-              id="projectDescription"
-              name="projectDescription"
-              required
-              rows={6}
-              placeholder="Tell us about your project, goals, and timeline..."
-              value={formData.projectDescription}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-0 bg-white resize-none"
-            />
-          </div>
-
-          {/* Submit Button */}
-          <div className="space-y-3">
-            {submitStatus.type && (
-              <div
-                className={`p-4 rounded-lg text-sm text-center ${
-                  submitStatus.type === 'success'
-                    ? 'bg-green-50 text-green-800 border border-green-200'
-                    : 'bg-red-50 text-red-800 border border-red-200'
-                }`}
-              >
-                {submitStatus.message}
-              </div>
-            )}
-            <Button
-              type="submit"
-              size="lg"
-              disabled={isSubmitting}
-              className="w-full rounded-full font-bold text-white text-sm tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
+      <div className="relative max-w-7xl mx-auto px-6">
+        <div className="grid gap-16 lg:grid-cols-2 items-start">
+          {/* LEFT CONTENT */}
+          <div className="space-y-8 pt-8">
+            <span
+              className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold text-white"
               style={{ backgroundColor: BRAND_COLOR }}
             >
-              {isSubmitting ? 'SENDING...' : 'SEND PROJECT BRIEF'}
-            </Button>
-            <p className="text-xs text-gray-500 text-center">
-              We'll respond within 24 hours with next steps
-            </p>
-          </div>
-        </form>
+              CONTACT
+            </span>
 
-        {/* Contact Options */}
-        {/* <div className="grid  gap-8 mt-16 ">
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+              Let’s build something{" "}
+              <span style={{ color: BRAND_COLOR }}>exceptional</span>
+            </h2>
+
+            <p className="text-muted-foreground text-lg max-w-lg">
+              Share your idea and we’ll respond within 24 hours with a clear
+              plan, timeline, and pricing.
+            </p>
+
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li>✓ Senior engineers only</li>
+              <li>✓ Clear scope & timeline</li>
+              <li>✓ No sales pressure</li>
+            </ul>
+          </div>
+
+          {/* FORM CARD */}
+          <Card className="border  bg-white/90 shadow-sm">
+            <CardContent className="md:p-8 space-y-6">
+              <Input
+                placeholder="Full name"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+              />
+
+              <Input
+                placeholder="Email address"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+
+              <Input
+                placeholder="Company (optional)"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+              />
+
+              {/* Project Type */}
+              <div className="grid grid-cols-2 gap-3">
+                {projectTypes.map((type) => (
+                  <button
+                    key={type}
+                    type="button"
+                    onClick={() =>
+                      setFormData({ ...formData, projectType: type })
+                    }
+                    className={`rounded-lg border px-4 py-2 text-sm font-medium transition ${
+                      formData.projectType === type
+                        ? "text-white"
+                        : "border-muted bg-muted/40"
+                    }`}
+                    style={{
+                      backgroundColor:
+                        formData.projectType === type ? BRAND_COLOR : undefined,
+                    }}
+                  >
+                    {type}
+                  </button>
+                ))}
+              </div>
+
+              <Textarea
+                rows={5}
+                placeholder="Tell us about your project..."
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+              />
+
+              {/* Status */}
+              {status.type && (
+                <div
+                  className={`flex items-center gap-2 rounded-lg p-3 text-sm ${
+                    status.type === "success"
+                      ? "bg-green-50 text-green-700"
+                      : "bg-red-50 text-red-700"
+                  }`}
+                >
+                  {status.type === "success" ? (
+                    <CheckCircle2 size={18} />
+                  ) : (
+                    <AlertCircle size={18} />
+                  )}
+                  {status.message}
+                </div>
+              )}
+
+              <Button
+                onClick={handleSubmit}
+                disabled={isSubmitting}
+                className="w-full rounded-full font-semibold"
+                style={{ backgroundColor: BRAND_COLOR }}
+              >
+                <Send className="mr-2 h-4 w-4" />
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
+
+              <p className="text-center text-xs text-muted-foreground">
+                We usually reply within 24 hours
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+{
+  /* Contact Options */
+}
+{
+  /* <div className="grid  gap-8 mt-16 ">
           <div className="text-center">
             <div 
               className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
@@ -257,9 +229,11 @@ export default function ContactForm() {
             >
               contact@clentro.io
             </a>
-          </div> */}
+          </div> */
+}
 
-          {/* <div className="text-center">
+{
+  /* <div className="text-center">
             <div 
               className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
               style={{ backgroundColor: BRAND_COLOR }}
@@ -276,9 +250,11 @@ export default function ContactForm() {
             >
               Book a free consultation
             </a>
-          </div> */}
+          </div> */
+}
 
-          {/* <div className="text-center">
+{
+  /* <div className="text-center">
             <div 
               className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
               style={{ backgroundColor: BRAND_COLOR }}
@@ -295,9 +271,5 @@ export default function ContactForm() {
             >
               Join our community
             </a>
-          </div> */}
-        
-      </div>
-    </section>
-  );
+          </div> */
 }

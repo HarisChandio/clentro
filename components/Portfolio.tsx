@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
 
 const BRAND_COLOR = "#FF5F00";
 
@@ -17,6 +19,7 @@ interface Project {
   image: string;
   gradient: string;
 }
+
 
 const projects: Project[] = [
   {
@@ -111,180 +114,114 @@ const projects: Project[] = [
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer) return;
-
-    let scrollPosition = 0;
-    const scrollSpeed = 1; // pixels per frame
-    const cardWidth = 380 + 24; // card width + gap
-
-    const autoScroll = () => {
-      scrollPosition += scrollSpeed;
-      
-      // Reset when we've scrolled through all projects
-      if (scrollPosition >= cardWidth * projects.length) {
-        scrollPosition = 0;
-      }
-      
-      scrollContainer.scrollLeft = scrollPosition;
-    };
-
-    const intervalId = setInterval(autoScroll, 30); // Update every 30ms for smooth animation
-
-    return () => clearInterval(intervalId);
-  }, []);
 
   return (
-    <section id="work" className="bg-gray-50 py-20 md:py-32">
+    <section id="work" className="bg-gray-50 py-10 md:py-24">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="mb-12">
-          <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
-            MVPs build at lightning speed
-          </h2>
-          
-        </div>
+        <h2 className="text-3xl md:text-6xl text-center font-black text-gray-900 mb-12">
+          MVPs built at <span style={{ color: BRAND_COLOR }}>lightning speed</span>
+        </h2>
 
-        {/* Horizontal Scrolling Portfolio */}
-        <div ref={scrollContainerRef} className="overflow-x-auto pb-8 scrollbar-hide">
-          <div className="flex gap-6 w-max">
-            {[...projects, ...projects].map((project, index) => (
-              <div 
-                key={`${project.id}-${index}`} 
-                className="w-[380px] cursor-pointer hover:scale-105 transition-transform duration-300"
+        {/* Swiper */}
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={24}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          loop={true}
+          breakpoints={{
+            0: { slidesPerView: 1 },      // Mobile: 1 card
+            640: { slidesPerView: 1 },    // Small tablets: 1 card
+            768: { slidesPerView: 2 },    // Tablets: 2 cards
+            1024: { slidesPerView: 3 },   // Desktop: 3 cards
+            1280: { slidesPerView: 4 },   // Large Desktop: 4 cards
+          }}
+        >
+          {projects.map((project) => (
+            <SwiperSlide key={project.id}>
+              <div
+                className="cursor-pointer hover:scale-105 transition-transform duration-300 my-2"
                 onClick={() => setSelectedProject(project)}
               >
-                <div>
-                  {/* Category Tag */}
-                  <div className="text-center mb-4">
-                    <span 
-                      className="text-xs font-bold tracking-wider"
-                      style={{ color: BRAND_COLOR }}
-                    >
-                      {project.category}
-                    </span>
-                  </div>
+                {/* Category */}
+                {/* <div className="text-center mb-4">
+                  <span className="text-xs font-bold tracking-wider" style={{ color: BRAND_COLOR }}>
+                    {project.category}
+                  </span>
+                </div> */}
 
-                  {/* Project Preview */}
-                  <div className="relative h-64 rounded-xl overflow-hidden mb-4 shadow-lg">
-                    <Image 
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-
-                  {/* Project Title */}
-                  <h3 
-                    className="text-lg font-bold leading-tight"
-                    style={{ color: BRAND_COLOR }}
-                  >
-                    {project.title}
-                  </h3>
+                {/* Project Image */}
+                <div className="relative h-64 rounded-xl overflow-hidden mb-4 shadow-lg">
+                  <Image src={project.image} alt={project.title} fill className="object-cover" />
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    
 
-      {/* Project Detail Modal */}
+                {/* Project Title */}
+                <h3 className="text-sm text-center font-semibold leading-tight" style={{ color: BRAND_COLOR }}>
+                  {project.title}
+                </h3>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* Project Modal */}
       {selectedProject && (
-        <div 
-          className="fixed inset-0 bg-white/75   z-50 overflow-y-auto"
+        <div
+          className="fixed inset-0 bg-white/75 z-50 overflow-y-auto"
           onClick={() => setSelectedProject(null)}
         >
           <div className="min-h-screen flex items-center justify-center p-4 md:p-6">
-            <div 
+            <div
               className="max-w-7xl w-full bg-white rounded-2xl overflow-hidden relative my-8"
               onClick={(e) => e.stopPropagation()}
             >
-            {/* Close Button */}
-            <button 
-              onClick={() => setSelectedProject(null)}
-              className="absolute top-1 right-1 md:-top-2 md:-right-1 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-gray-900 z-20 hover:opacity-80 transition-opacity"
-             
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-2 right-2 w-10 h-10 rounded-full flex items-center justify-center text-gray-900 z-20 hover:opacity-80 transition-opacity"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
 
-            <div className="grid md:grid-cols-2 gap-0">
-              {/* Left Side - Details */}
-              <div className="text-white p-6 md:p-8 lg:p-10 space-y-6 md:space-y-8 order-2 md:order-1">
-                <div>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 pr-8" style={{ color: BRAND_COLOR }}>
+              <div className="grid md:grid-cols-2 gap-0">
+                {/* Left - Details */}
+                <div className="text-white p-6 md:p-8 lg:p-10 space-y-6 md:space-y-8 order-2 md:order-1">
+                  <h2 className="text-2xl text-center md:text-3xl lg:text-4xl font-bold mb-3 pr-8" style={{ color: BRAND_COLOR }}>
                     {selectedProject.title}
                   </h2>
-                  <span 
-                    className="text-xs font-bold tracking-wider px-3 py-1.5 rounded-full inline-block"
-                    style={{ backgroundColor: BRAND_COLOR, color: 'white' }}
-                  >
+                  <span className="text-xs font-bold tracking-wider px-3 py-1.5 rounded-full inline-block" style={{ backgroundColor: BRAND_COLOR, color: 'white' }}>
                     {selectedProject.category}
                   </span>
-                </div>
 
-                <div>
-                  <h3 
-                    className="text-xs md:text-sm font-bold tracking-wider mb-3"
-                    style={{ color: BRAND_COLOR }}
-                  >
+                  <h3 className="text-xs md:text-sm font-bold tracking-wider mb-3" style={{ color: BRAND_COLOR }}>
                     PROJECT DESCRIPTION
                   </h3>
                   <p className="text-black text-base md:text-lg leading-relaxed">
                     {selectedProject.description}
                   </p>
-                </div>
 
-                <div>
-                  <h3 
-                    className="text-xs md:text-sm font-bold tracking-wider mb-3"
-                    style={{ color: BRAND_COLOR }}
-                  >
+                  <h3 className="text-xs md:text-sm font-bold tracking-wider mb-3" style={{ color: BRAND_COLOR }}>
                     SKILLS & DELIVERABLES
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.skills.map((skill, index) => (
-                      <span 
-                        key={index}
-                        className="px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold text-white"
-                        style={{ backgroundColor: BRAND_COLOR }}
-                      >
+                      <span key={index} className="px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold text-white" style={{ backgroundColor: BRAND_COLOR }}>
                         {skill}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* <Button
-                  className="w-full md:w-auto rounded-full px-6 md:px-8 py-2.5 md:py-3 font-bold text-sm md:text-base hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: BRAND_COLOR }}
-                >
-                  Copy link
-                  <svg className="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                    </svg>
-                </Button> */}
-              </div>
-
-              {/* Right Side - Preview */}
-              <div className="p-8 order-1 md:order-2">
-                <div className="relative rounded-xl overflow-hidden h-64 md:h-full md:min-h-[500px] border-2 md:border-4 border-gray-900" >
-                  <Image 
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    fill
-                    className="object-cover"
-                  />
+                {/* Right - Image */}
+                <div className="p-8 order-1 md:order-2">
+                  <div className="relative rounded-xl overflow-hidden h-64 md:h-full md:min-h-[600px] border-2 md:border-4 border-gray-900">
+                    <Image src={selectedProject.image} alt={selectedProject.title} fill className="object-cover" />
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
         </div>

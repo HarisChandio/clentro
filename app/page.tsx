@@ -6,6 +6,7 @@ import About from "@/components/About";
 import ShipFastMethodology from "@/components/ShipFastMethodology";
 import { Contact } from "lucide-react";
 import ContactPage from "./contact/page";
+import Footer from "@/components/Footer";
 
 const BRAND_COLOR = "#FF5F00";
 
@@ -32,7 +33,7 @@ export default function Home() {
       <div id="contact">
         <ContactPage />
       </div>
-
+<Footer />
       {/* Floating Email Button */}
       <a 
         href="mailto:contact@clentro.io"

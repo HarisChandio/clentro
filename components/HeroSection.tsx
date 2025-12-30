@@ -49,12 +49,12 @@ export default function HeroSection() {
 
             {/* Main Headline */}
             <div className="space-y-1 md:space-y-2">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none text-gray-900">
+              <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none text-gray-900">
                 Build. Ship
               </h1>
               
               <h1 
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none"
+                className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none"
                 style={{ color: BRAND_COLOR }}
               >
                 Fast.
@@ -88,48 +88,56 @@ export default function HeroSection() {
                 size="lg" 
                 variant="outline" 
                 onClick={() => handleScrollToSection('capabilities')}
-                className="rounded-full px-6 md:px-8 text-sm md:text-base font-semibold border-2 border-gray-900 text-gray-900 hover:bg-gray-50 cursor-pointer"
+                className="rounded-full px-6 md:px-8 text-sm md:text-base font-semibold border-2 border-[#FF5F00] text-black hover:bg-[#FF5F00] hover:text-white group cursor-pointer"
               >
                 VIEW CAPABILITIES
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 md:gap-8 pt-6 md:pt-8">
-              <div>
-                <div 
-                  className="text-2xl md:text-4xl font-bold mb-1"
-                  style={{ color: BRAND_COLOR }}
-                >
-                  50+
-                </div>
-                <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">
-                  Projects Shipped
-                </div>
-              </div>
-              <div>
-                <div 
-                  className="text-2xl md:text-4xl font-bold mb-1"
-                  style={{ color: BRAND_COLOR }}
-                >
-                  30D
-                </div>
-                <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">
-                  Avg. Delivery
-                </div>
-              </div>
-              <div>
-                <div 
-                  className="text-2xl md:text-4xl font-bold mb-1"
-                  style={{ color: BRAND_COLOR }}
-                >
-                  100%
-                </div>
-                <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">
-                  Client Satisfaction
-                </div>
-              </div>
-            </div>
+       <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-6 md:pt-8 text-center">
+  
+  {/* Stat 1 */}
+  <div className="flex flex-col items-center">
+    <div
+      className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
+      style={{ color: BRAND_COLOR }}
+    >
+      50+
+    </div>
+    <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
+      Projects Shipped
+    </div>
+  </div>
+
+  {/* Stat 2 */}
+  <div className="flex flex-col items-center">
+    <div
+      className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
+      style={{ color: BRAND_COLOR }}
+    >
+      30D
+    </div>
+    <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
+      Avg. Delivery
+    </div>
+  </div>
+
+  {/* Stat 3 */}
+  <div className="flex flex-col items-center">
+    <div
+      className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
+      style={{ color: BRAND_COLOR }}
+    >
+      100%
+    </div>
+    <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
+      Client Satisfaction
+    </div>
+  </div>
+
+</div>
+
           </div>
         </div>
       </div>

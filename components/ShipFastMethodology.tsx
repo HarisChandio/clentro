@@ -77,10 +77,10 @@ export default function ShipFastMethodology() {
         >
           HOW WE WORK
         </span>
-        <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
-          Ship Fast Methodology
+        <h2 className="text-3xl md:text-6xl font-black text-nowrap text-gray-900 mb-3">
+          Ship Fast <span style={{ color: BRAND_COLOR }}>Methodology</span>
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xs md:text-lg text-gray-600 max-w-2xl mx-auto">
           Our battle-tested process eliminates bottlenecks and accelerates time-to-market without compromising quality.
         </p>
       </div>

@@ -32,8 +32,8 @@ export default function About() {
             >
               ABOUT CLENTRO
             </span>
-            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
-                Engineers who ship fast, without compromise.
+            <h2 className="text-3xl md:text-6xl font-black text-gray-900 mb-6">
+                Engineers who <span style={{ color: BRAND_COLOR }}> ship fast,</span> without compromise.
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
               We're a distributed team of senior engineers, product designers, and AI specialists who've shipped products that scaled to 100K+ users. We leverage AI-powered tools like Cursor and Claude to 10x our development speed.
@@ -43,22 +43,26 @@ export default function About() {
             </p>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6 mt-12">
+           <div className="grid grid-cols-2 gap-2 mt-12 max-w-md">
               {stats.map((stat, index) => (
-                <div key={index}>
-                  <div 
-                    className="text-4xl md:text-5xl font-black mb-1"
+                <div
+                  key={index}
+                  className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition"
+                >
+                  <div
+                    className="text-3xl md:text-4xl font-extrabold mb-1"
                     style={{ color: BRAND_COLOR }}
                   >
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-700 font-medium">
+                  <div className="text-sm text-gray-600 font-medium">
                     {stat.label}
                   </div>
                 </div>
               ))}
             </div>
           </div>
+
 
           {/* Right Content - Images Grid */}
           <div className="grid grid-cols-2 gap-4">
