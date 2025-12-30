@@ -1,34 +1,24 @@
-import {
-  Linkedin,
-  Github,
-  Twitter,
-  Mail,
-  MapPin,
-} from "lucide-react";
+import { Linkedin, Github, Twitter, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
-import Clentro from "@/public/assets/logo/clentro png-14.png"
-
+import Clentro from "@/public/assets/logo/clentro png-14.png";
 
 export default function Footer() {
   return (
     <footer className="border-t border-gray-200 text-gray-50 bg-gray-950">
       <div className="max-w-7xl mx-auto px-6 py-16">
-
         {/* Top */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-
           {/* Brand */}
-          <div >
+          <div>
             <div className="mb-4 w-36 h-auto ">
-
-            <Image src={Clentro} alt="clentro" />
+              <Image src={Clentro} alt="clentro" />
             </div>
             {/* <h3 className="text-2xl font-bold text-[#FF5F00] mb-4">
               Clentro<span style={{ color: BRAND_COLOR }}>.</span>
             </h3> */}
             <p className="text-sm leading-relaxed">
-              We build scalable SaaS platforms, AI-powered products,
-              and high-performance digital systems for modern businesses.
+              We build scalable SaaS platforms, AI-powered products, and
+              high-performance digital systems for modern businesses.
             </p>
           </div>
 
@@ -36,10 +26,26 @@ export default function Footer() {
           <div>
             <h4 className=" font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
-              <li>SaaS Product Development</li>
-              <li>Full-Stack Engineering</li>
-              <li>AI & Automation</li>
-              <li>Mobile Applications</li>
+              <li>
+                <a href="#" className="hover:text-[#FF5F00] transition-colors">
+                  SaaS Product Development
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-[#FF5F00] transition-colors">
+                  Full-Stack Engineering
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-[#FF5F00] transition-colors">
+                  AI & Automation
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-[#FF5F00] transition-colors">
+                  Mobile Applications
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -47,10 +53,41 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
-              <li>About</li>
-              <li>Capabilities</li>
-              <li>Work</li>
-              <li>Contact</li>
+              <li>
+                <a
+                  href="#about"
+                  className="hover:text-[#FF5F00] transition-colors"
+                >
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#capabilities"
+                  className="hover:text-[#FF5F00] transition-colors"
+                >
+                  Capabilities
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#work"
+                  className="hover:text-[#FF5F00] transition-colors"
+                >
+                  Work
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#contact"
+                  className="hover:text-[#FF5F00] transition-colors"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -72,7 +109,10 @@ export default function Footer() {
 
             {/* Social */}
             <div className="flex gap-4 mt-6">
-              <a href="https://www.linkedin.com/company/110671023/admin/dashboard" className="hover:text-gray-700 transition">
+              <a
+                href="https://www.linkedin.com/company/110671023/admin/dashboard"
+                className="hover:text-gray-700 transition"
+              >
                 <Linkedin size={18} />
               </a>
             </div>
@@ -90,7 +130,6 @@ export default function Footer() {
             <span className="hover:text-white cursor-pointer">Terms</span>
           </div>
         </div>
-
       </div>
     </footer>
   );

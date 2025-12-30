@@ -95,7 +95,7 @@ export default function Header() {
             )}
 
             <Button
-              className="mt-2 rounded-full w-full font-semibold"
+              className="mt-2 rounded-full w-full font-semibold cursor-pointer"
               style={{ backgroundColor: BRAND_COLOR }}
             >
               START PROJECT

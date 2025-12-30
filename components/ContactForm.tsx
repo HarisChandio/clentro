@@ -188,7 +188,7 @@ export default function ContactSection() {
               <Button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="w-full rounded-full font-semibold"
+                className="w-full rounded-full font-semibold cursor-pointer"
                 style={{ backgroundColor: BRAND_COLOR }}
               >
                 <Send className="mr-2 h-4 w-4" />
