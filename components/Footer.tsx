@@ -6,12 +6,12 @@ import {
   MapPin,
 } from "lucide-react";
 import Image from "next/image";
-import Clentro from "@/public/assets/logo/clentro png-15.png"
+import Clentro from "@/public/assets/logo/clentro png-14.png"
 
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 text-black ">
+    <footer className="border-t border-gray-200 text-gray-50 bg-gray-950">
       <div className="max-w-7xl mx-auto px-6 py-16">
 
         {/* Top */}
@@ -72,14 +72,8 @@ export default function Footer() {
 
             {/* Social */}
             <div className="flex gap-4 mt-6">
-              <a className="hover:text-gray-700 transition">
+              <a href="https://www.linkedin.com/company/110671023/admin/dashboard" className="hover:text-gray-700 transition">
                 <Linkedin size={18} />
-              </a>
-              <a className="hover:text-gray-700 transition">
-                <Github size={18} />
-              </a>
-              <a className="hover:text-gray-700 transition">
-                <Twitter size={18} />
               </a>
             </div>
           </div>

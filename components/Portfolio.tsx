@@ -154,8 +154,9 @@ export default function Portfolio() {
         {/* Swiper */}
         <Swiper
           modules={[Autoplay]}
+          speed={1500}
           spaceBetween={24}
-          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          autoplay={{ delay: 800, disableOnInteraction: false }}
           loop={true}
           breakpoints={{
             0: { slidesPerView: 1 }, // Mobile: 1 card
