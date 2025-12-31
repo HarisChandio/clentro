@@ -34,14 +34,14 @@ const capabilities: CapabilityItem[] = [
   },
   {
     icon: "cpu",
-    title: "AI-Powered Development",
+    title: "AI Development",
     description:
-      "AI-accelerated development and intelligent product features using GPT-4, Claude, and vector databases.",
+      "Building intelligent applications with cutting-edge AI technologies. RAG systems, AI agents, chatbots, and custom LLM integrations that deliver real business value.",
     features: [
-      "AI-assisted development",
-      "LLM integrations",
-      "Vector databases",
-      "Semantic search & RAG",
+      "RAG & knowledge systems",
+      "AI agents & workflows",
+      "Intelligent chatbots",
+      "Custom LLM integrations",
     ],
   },
   {
