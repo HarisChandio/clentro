@@ -211,7 +211,7 @@ export default function Portfolio() {
         <DialogOverlay className="bg-white/70 backdrop-blur-sm" />
 
         {selectedProject && (
-          <DialogContent className="min-w-[85vw] max-h-[90vh] w-full p-0 rounded-2xl overflow-y-auto">
+          <DialogContent className="min-w-[85vw] max-h-[95vh] w-full p-0 rounded-2xl overflow-y-auto">
             {/* Close Button */}
             <DialogClose className="absolute right-4 top-4 z-20 rounded-full p-2 hover:bg-black/5 transition">
               {/* <X className="h-5 w-5 text-black" /> */}
