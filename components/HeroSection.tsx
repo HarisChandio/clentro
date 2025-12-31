@@ -63,7 +63,8 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="text-base md:text-lg text-gray-600 max-w-lg leading-relaxed">
-              Custom software solutions engineered for the AI era. We leverage AI-powered tools like Cursor and Claude to transform complex ideas into production-ready products at unprecedented speed.
+               Have an idea or a vibe-coded product you want live—fast?
+We’re engineers equipped with the best AI tools, turning early concepts into production-ready software for SaaS and AI startups.
             </p>
 
             {/* CTA Buttons */}
@@ -99,11 +100,9 @@ export default function HeroSection() {
   
   {/* Stat 1 */}
   <div className="flex flex-col items-center">
-    <div
-      className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
-      style={{ color: BRAND_COLOR }}
-    >
-      50+
+    <div className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none">
+      <span style={{ color: BRAND_COLOR }}>50</span>
+      <span className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black">+</span>
     </div>
     <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
       Projects Shipped
@@ -112,11 +111,9 @@ export default function HeroSection() {
 
   {/* Stat 2 */}
   <div className="flex flex-col items-center">
-    <div
-      className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
-      style={{ color: BRAND_COLOR }}
-    >
-      30D
+    <div className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none">
+      <span style={{ color: BRAND_COLOR }}>45</span>
+      <span className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black">D</span>
     </div>
     <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
       Avg. Delivery
@@ -125,11 +122,9 @@ export default function HeroSection() {
 
   {/* Stat 3 */}
   <div className="flex flex-col items-center">
-    <div
-      className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
-      style={{ color: BRAND_COLOR }}
-    >
-      100%
+    <div className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none">
+      <span style={{ color: BRAND_COLOR }}>98</span>
+      <span className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black">%</span>
     </div>
     <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
       Client Satisfaction

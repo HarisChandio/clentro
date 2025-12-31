@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Clentro - Build. Ship. Fast.",
-  description: "Custom software solutions engineered for the AI era. We transform complex ideas into production-ready products at unprecedented speed.",
+  description: "Have an idea or a vibe-coded product you want live—fast? We're engineers equipped with the best AI tools, turning early concepts into production-ready software for SaaS and AI startups.",
   
 };
 

@@ -174,30 +174,33 @@ export default function ShipFastMethodology() {
       {/* Mobile: 2 items on top, 1 centered below */}
       <div className="md:hidden">
         <div className="grid grid-cols-2 gap-4 mb-4">
-          {metrics.slice(0, 2).map((metric, index) => (
-            <div key={index} className="text-center">
-              <div 
-                className="text-3xl font-black mb-2"
-                style={{ color: BRAND_COLOR }}
-              >
-                {metric.value}
+          {metrics.slice(0, 2).map((metric, index) => {
+            // Extract numbers and symbols
+            const match = metric.value.match(/^(\d+(?:\.\d+)?(?:-\d+)?)(.*)/); 
+            const number = match ? match[1] : metric.value;
+            const symbol = match ? match[2] : '';
+            
+            return (
+              <div key={index} className="text-center">
+                <div className="text-3xl font-black mb-2">
+                  <span style={{ color: BRAND_COLOR }}>{number}</span>
+                  <span className="text-2xl font-semibold text-black">{symbol}</span>
+                </div>
+                <div className="text-sm font-bold text-gray-900 mb-2">
+                  {metric.label}
+                </div>
+                <p className="text-xs text-gray-600">
+                  {metric.description}
+                </p>
               </div>
-              <div className="text-sm font-bold text-gray-900 mb-2">
-                {metric.label}
-              </div>
-              <p className="text-xs text-gray-600">
-                {metric.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="flex justify-center">
           <div className="text-center max-w-[180px]">
-            <div 
-              className="text-3xl font-black mb-2"
-              style={{ color: BRAND_COLOR }}
-            >
-              {metrics[2].value}
+            <div className="text-3xl font-black mb-2">
+              <span style={{ color: BRAND_COLOR }}>100</span>
+              <span className="text-2xl font-semibold text-black">%</span>
             </div>
             <div className="text-sm font-bold text-gray-900 mb-2">
               {metrics[2].label}
@@ -211,22 +214,27 @@ export default function ShipFastMethodology() {
 
       {/* Desktop: Grid */}
       <div className="hidden md:grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        {metrics.map((metric, index) => (
-          <div key={index} className="text-center">
-            <div 
-              className="text-6xl font-black mb-2"
-              style={{ color: BRAND_COLOR }}
-            >
-              {metric.value}
+        {metrics.map((metric, index) => {
+          // Extract numbers and symbols
+          const match = metric.value.match(/^(\d+(?:\.\d+)?(?:-\d+)?)(.*)/); 
+          const number = match ? match[1] : metric.value;
+          const symbol = match ? match[2] : '';
+          
+          return (
+            <div key={index} className="text-center">
+              <div className="text-6xl font-black mb-2">
+                <span style={{ color: BRAND_COLOR }}>{number}</span>
+                <span className="text-5xl font-semibold text-black">{symbol}</span>
+              </div>
+              <div className="text-xl font-bold text-gray-900 mb-2">
+                {metric.label}
+              </div>
+              <p className="text-sm text-gray-600">
+                {metric.description}
+              </p>
             </div>
-            <div className="text-xl font-bold text-gray-900 mb-2">
-              {metric.label}
-            </div>
-            <p className="text-sm text-gray-600">
-              {metric.description}
-            </p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

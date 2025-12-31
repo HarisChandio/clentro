@@ -147,8 +147,8 @@ export default function Portfolio() {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <h2 className="text-3xl md:text-6xl text-center font-black text-gray-900 mb-12">
-          MVPs built at{" "}
-          <span style={{ color: BRAND_COLOR }}>lightning speed</span>
+          MVPs built with{" "}
+          <span style={{ color: BRAND_COLOR , fontStyle: "italic"}}>SPEED</span>
         </h2>
 
         {/* Swiper */}
