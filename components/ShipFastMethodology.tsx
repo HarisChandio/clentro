@@ -1,3 +1,6 @@
+"use client";
+import { motion, Variants } from "framer-motion";
+
 const BRAND_COLOR = "#FF5F00";
 
 export default function ShipFastMethodology() {
@@ -66,91 +69,94 @@ export default function ShipFastMethodology() {
       description: "Full access to code repos and project boards"
     }
   ];
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
 
-  return (
-    <section className="container mx-auto px-6 py-16 md:py-24">
-      {/* Header */}
-      <div className="text-center mb-16">
-        <span 
-          className="text-xs font-bold tracking-wider px-4 py-2 rounded-full inline-block mb-6"
-          style={{ backgroundColor: BRAND_COLOR, color: 'white' }}
-        >
-          HOW WE WORK
-        </span>
-        <h2 className="text-3xl md:text-6xl font-black text-nowrap text-gray-900 mb-3">
-          Ship Fast <span style={{ color: BRAND_COLOR }}>Methodology</span>
-        </h2>
-        <p className="text-xs md:text-lg text-gray-600 max-w-2xl mx-auto">
-          Our battle-tested process eliminates bottlenecks and accelerates time-to-market without compromising quality.
-        </p>
-      </div>
+const staggerContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
 
-      {/* Phases Grid */}
-      <div className="mb-16">
-        {/* Mobile: Horizontal Slider */}
-        <div className="md:hidden overflow-x-auto pb-4 -mx-6 px-6 scrollbar-hide">
-          <div className="flex gap-4 w-max">
-            {phases.map((phase, index) => (
-              <div 
-                key={index}
-                className="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:border-gray-300 transition-all w-[280px] flex-shrink-0"
-              >
-                <h3 
-                  className="text-4xl font-black mb-3"
-                  style={{ color: BRAND_COLOR }}
-                >
-                  {phase.number}
-                </h3>
-                <h4 className="text-lg font-bold text-gray-900 mb-3">
-                  {phase.title}
-                </h4>
-                <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-                  {phase.description}
-                </p>
-                
-                <div>
-                  <span 
-                    className="text-xs font-bold tracking-wider mb-3 block"
-                    style={{ color: BRAND_COLOR }}
-                  >
-                    DELIVERABLES
-                  </span>
-                  <ul className="space-y-2">
-                    {phase.deliverables.map((item, idx) => (
-                      <li key={idx} className="text-xs text-gray-700 flex items-start">
-                        <span className="mr-2">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+const fadeLeft: Variants = {
+  hidden: { opacity: 0, x: -40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
 
-        {/* Desktop: Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+return (
+  <section className="container mx-auto px-6 py-16 md:py-24">
+    {/* Header */}
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.4 }}
+      className="text-center mb-16"
+    >
+      <span
+        className="text-xs font-bold tracking-wider px-4 py-2 rounded-full inline-block mb-6"
+        style={{ backgroundColor: BRAND_COLOR, color: "white" }}
+      >
+        HOW WE WORK
+      </span>
+
+      <h2 className="text-3xl md:text-6xl font-black text-nowrap text-gray-900 mb-3">
+        Ship Fast <span style={{ color: BRAND_COLOR }}>Methodology</span>
+      </h2>
+
+      <p className="text-xs md:text-lg text-gray-600 max-w-2xl mx-auto">
+        Our battle-tested process eliminates bottlenecks and accelerates
+        time-to-market without compromising quality.
+      </p>
+    </motion.div>
+
+    {/* Phases */}
+    <div className="mb-16">
+      {/* Mobile Slider */}
+      <div className="md:hidden overflow-x-auto pb-4 -mx-6 px-6 scrollbar-hide">
+        <div className="flex gap-4 w-max">
           {phases.map((phase, index) => (
-            <div 
+            <motion.div
               key={index}
-              className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-gray-300 transition-all"
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              className="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:border-gray-300 transition-all w-[280px] flex-shrink-0"
             >
-              <h3 
-                className="text-5xl font-black mb-4"
+              <h3
+                className="text-4xl font-black mb-3"
                 style={{ color: BRAND_COLOR }}
               >
                 {phase.number}
               </h3>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">
+
+              <h4 className="text-lg font-bold text-gray-900 mb-3">
                 {phase.title}
               </h4>
+
               <p className="text-sm text-gray-600 mb-6 leading-relaxed">
                 {phase.description}
               </p>
-              
+
               <div>
-                <span 
+                <span
                   className="text-xs font-bold tracking-wider mb-3 block"
                   style={{ color: BRAND_COLOR }}
                 >
@@ -158,84 +164,155 @@ export default function ShipFastMethodology() {
                 </span>
                 <ul className="space-y-2">
                   {phase.deliverables.map((item, idx) => (
-                    <li key={idx} className="text-xs text-gray-700 flex items-start">
+                    <li
+                      key={idx}
+                      className="text-xs text-gray-700 flex items-start"
+                    >
                       <span className="mr-2">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Metrics */}
-      {/* Mobile: 2 items on top, 1 centered below */}
-      <div className="md:hidden">
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          {metrics.slice(0, 2).map((metric, index) => {
-            // Extract numbers and symbols
-            const match = metric.value.match(/^(\d+(?:\.\d+)?(?:-\d+)?)(.*)/); 
-            const number = match ? match[1] : metric.value;
-            const symbol = match ? match[2] : '';
-            
-            return (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-black mb-2">
-                  <span style={{ color: BRAND_COLOR }}>{number}</span>
-                  <span className="text-2xl font-semibold text-black">{symbol}</span>
-                </div>
-                <div className="text-sm font-bold text-gray-900 mb-2">
-                  {metric.label}
-                </div>
-                <p className="text-xs text-gray-600">
-                  {metric.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-        <div className="flex justify-center">
-          <div className="text-center max-w-[180px]">
-            <div className="text-3xl font-black mb-2">
-              <span style={{ color: BRAND_COLOR }}>100</span>
-              <span className="text-2xl font-semibold text-black">%</span>
+      {/* Desktop Grid */}
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+      >
+        {phases.map((phase, index) => (
+          <motion.div
+            key={index}
+            variants={fadeUp}
+            className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-gray-300 transition-all"
+          >
+            <h3
+              className="text-5xl font-black mb-4"
+              style={{ color: BRAND_COLOR }}
+            >
+              {phase.number}
+            </h3>
+
+            <h4 className="text-xl font-bold text-gray-900 mb-3">
+              {phase.title}
+            </h4>
+
+            <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+              {phase.description}
+            </p>
+
+            <div>
+              <span
+                className="text-xs font-bold tracking-wider mb-3 block"
+                style={{ color: BRAND_COLOR }}
+              >
+                DELIVERABLES
+              </span>
+              <ul className="space-y-2">
+                {phase.deliverables.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="text-xs text-gray-700 flex items-start"
+                  >
+                    <span className="mr-2">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+
+    {/* Metrics */}
+    {/* Mobile */}
+    <div className="md:hidden">
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        {metrics.slice(0, 2).map((metric, index) => (
+          <motion.div
+            key={index}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div
+              className="text-3xl font-black mb-2"
+              style={{ color: BRAND_COLOR }}
+            >
+              {metric.value}
+
             </div>
             <div className="text-sm font-bold text-gray-900 mb-2">
-              {metrics[2].label}
+              {metric.label}
             </div>
             <p className="text-xs text-gray-600">
-              {metrics[2].description}
+              {metric.description}
             </p>
-          </div>
-        </div>
+          </motion.div>
+        ))}
       </div>
 
-      {/* Desktop: Grid */}
-      <div className="hidden md:grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        {metrics.map((metric, index) => {
-          // Extract numbers and symbols
-          const match = metric.value.match(/^(\d+(?:\.\d+)?(?:-\d+)?)(.*)/); 
-          const number = match ? match[1] : metric.value;
-          const symbol = match ? match[2] : '';
-          
-          return (
-            <div key={index} className="text-center">
-              <div className="text-6xl font-black mb-2">
-                <span style={{ color: BRAND_COLOR }}>{number}</span>
-                <span className="text-5xl font-semibold text-black">{symbol}</span>
-              </div>
-              <div className="text-xl font-bold text-gray-900 mb-2">
-                {metric.label}
-              </div>
-              <p className="text-sm text-gray-600">
-                {metric.description}
-              </p>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="flex justify-center"
+      >
+        <div className="text-center max-w-[180px]">
+          <div
+            className="text-3xl font-black mb-2"
+            style={{ color: BRAND_COLOR }}
+          >
+            {metrics[2].value}
+          </div>
+          <div className="text-sm font-bold text-gray-900 mb-2">
+            {metrics[2].label}
+          </div>
+          <p className="text-xs text-gray-600">
+            {metrics[2].description}
+          </p>
+        </div>
+      </motion.div>
+    </div>
+
+    {/* Desktop Metrics */}
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="hidden md:grid md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+    >
+      {metrics.map((metric, index) => (
+        <motion.div key={index} variants={fadeUp} className="text-center">
+          <div
+            className="text-6xl font-black mb-2"
+            style={{ color: BRAND_COLOR }}
+          >
+            {metric.value}
+          </div>
+          <div className="text-xl font-bold text-gray-900 mb-2">
+            {metric.label}
+          </div>
+          <p className="text-sm text-gray-600">
+            {metric.description}
+          </p>
+        </motion.div>
+      ))}
+    </motion.div>
+  </section>
+);
+
+
 }
