@@ -250,6 +250,7 @@ return (
               style={{ color: BRAND_COLOR }}
             >
               {metric.value}
+
             </div>
             <div className="text-sm font-bold text-gray-900 mb-2">
               {metric.label}
@@ -312,5 +313,6 @@ return (
     </motion.div>
   </section>
 );
+
 
 }
