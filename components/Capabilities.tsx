@@ -1,3 +1,5 @@
+"use client"
+import { motion } from "framer-motion";
 const BRAND_COLOR = "#FF5F00";
 
 interface CapabilityItem {
@@ -88,62 +90,102 @@ const IconMap: Record<string, React.ReactElement> = {
 };
 
 export default function Capabilities() {
-  return (
-    <section id="capabilities" className="bg-gray-100 py-10 md:py-18">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <span
-            className="inline-block text-xs font-semibold px-4 py-1.5 rounded-full mb-4"
-            style={{ backgroundColor: BRAND_COLOR, color: "#fff" }}
+return (
+  <motion.section
+    id="capabilities"
+    className="bg-gray-100 py-10 md:py-18"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.2 }}
+    variants={{
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: {
+          staggerChildren: 0.15,
+        },
+      },
+    }}
+  >
+    <div className="max-w-6xl mx-auto px-6">
+      {/* Header */}
+      <motion.div
+        className="text-center mb-14"
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 0.6,
+              ease: "easeOut",
+            },
+          },
+        }}
+      >
+        <span
+          className="inline-block text-xs font-semibold px-4 py-1.5 rounded-full mb-4"
+          style={{ backgroundColor: BRAND_COLOR, color: "#fff" }}
+        >
+          What We Do
+        </span>
+
+        <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
+          Core <span style={{ color: BRAND_COLOR }}>Capabilities</span>
+        </h2>
+
+        <p className="mt-3 text-sm md:text-base text-gray-600 max-w-xl mx-auto">
+          Full-spectrum engineering services to move your product faster.
+        </p>
+      </motion.div>
+
+      {/* Grid */}
+      <div className="grid md:grid-cols-2 gap-6">
+        {capabilities.map((cap, i) => (
+          <motion.div
+            key={i}
+            className="bg-white rounded-xl p-6 md:p-8 border border-orange-200"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  ease: "easeOut",
+                },
+              },
+            }}
+            whileHover={{ y: -4 }}
           >
-            What We Do
-          </span>
-
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
-            Core <span style={{ color: BRAND_COLOR }}>Capabilities</span>
-          </h2>
-
-          <p className="mt-3 text-sm md:text-base text-gray-600 max-w-xl mx-auto">
-            Full-spectrum engineering services to move your product faster.
-          </p>
-        </div>
-
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {capabilities.map((cap, i) => (
+            {/* Icon */}
             <div
-              key={i}
-              className="bg-white rounded-xl p-6 md:p-8 border border-orange-200"
+              className="w-12 h-12 flex items-center justify-center rounded-lg mb-5"
+              style={{ backgroundColor: BRAND_COLOR, color: "#fff" }}
             >
-              {/* Icon */}
-              <div
-                className="w-12 h-12 flex items-center justify-center rounded-lg mb-5"
-                style={{ backgroundColor: BRAND_COLOR, color: "#fff" }}
-              >
-                {IconMap[cap.icon]}
-              </div>
-
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                {cap.title}
-              </h3>
-
-              <p className="text-sm text-gray-600 mb-5 leading-relaxed">
-                {cap.description}
-              </p>
-
-              <ul className="space-y-2">
-                {cap.features.map((feature, idx) => (
-                  <li key={idx} className="flex gap-2 text-sm text-gray-700">
-                    <span style={{ color: BRAND_COLOR }}>✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              {IconMap[cap.icon]}
             </div>
-          ))}
-        </div>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              {cap.title}
+            </h3>
+
+            <p className="text-sm text-gray-600 mb-5 leading-relaxed">
+              {cap.description}
+            </p>
+
+            <ul className="space-y-2">
+              {cap.features.map((feature, idx) => (
+                <li key={idx} className="flex gap-2 text-sm text-gray-700">
+                  <span style={{ color: BRAND_COLOR }}>✓</span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
       </div>
-    </section>
-  );
+    </div>
+  </motion.section>
+);
 }
