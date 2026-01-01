@@ -172,12 +172,7 @@ export default function Portfolio() {
                 className="cursor-pointer hover:scale-105 transition-transform duration-300 my-2"
                 onClick={() => setSelectedProject(project)}
               >
-                {/* Category */}
-                {/* <div className="text-center mb-4">
-                  <span className="text-xs font-bold tracking-wider" style={{ color: BRAND_COLOR }}>
-                    {project.category}
-                  </span>
-                </div> */}
+             
 
                 {/* Project Image */}
                 <div className="relative h-64 rounded-xl overflow-hidden mb-4 shadow-lg">
