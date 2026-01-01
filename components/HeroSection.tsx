@@ -29,7 +29,7 @@ export default function HeroSection() {
           <source src="/assets/video_2.mp4" type="video/mp4" />
         </video>
         {/* Overlay to make content more readable */}
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 "></div>
       </div>
 
       {/* Content Overlay */}
@@ -105,7 +105,7 @@ We’re engineers equipped with the best AI tools, turning early concepts into p
       <span className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black">+</span>
     </div>
     <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
-      Projects Shipped
+    Projects Shipped
     </div>
   </div>
 
