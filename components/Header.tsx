@@ -62,7 +62,7 @@ export default function Header() {
               className="rounded-full px-8 font-semibold text-sm cursor-pointer hover:scale-105 transition-transform"
               style={{ backgroundColor: BRAND_COLOR }}
             >
-              Let's Ship
+              SHIP
             </Button>
           </Link>
 
@@ -98,7 +98,7 @@ export default function Header() {
               className="mt-2 rounded-full w-full font-semibold cursor-pointer"
               style={{ backgroundColor: BRAND_COLOR }}
             >
-              Let's Ship
+              SHIP
             </Button>
           </div>
         </div>
