@@ -21,31 +21,31 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Sarah Johnson",
+    name: "Samson Babajide",
     role: "CEO",
-    company: "TechStart Inc",
+    company: "Bavity LLC",
     content:
       "Working with Clentro was a game-changer for our business. They delivered our MVP in just 4 weeks, and the quality exceeded our expectations. Their AI-accelerated development approach is truly revolutionary.",
     rating: 5,
   },
-  {
-    id: 2,
-    name: "Michael Chen",
-    role: "Product Manager",
-    company: "E-commerce Solutions",
-    content:
-      "The team's ability to ship fast without compromising quality is impressive. They built our entire e-commerce platform with seamless integrations and beautiful UI. Highly recommend!",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    role: "Founder",
-    company: "DesignHub",
-    content:
-      "Clentro transformed our vision into reality faster than we thought possible. Their expertise in Next.js and modern web technologies is evident in every pixel. Outstanding work!",
-    rating: 5,
-  },
+  // {
+  //   id: 2,
+  //   name: "",
+  //   role: "",
+  //   company: "E-commerce Solutions",
+  //   content:
+  //     "Excellent to work with. Haris went above and beyond with my requests, has expertice in the field and was available for adjustments at a moments notice. Will 100% work with him again and again in the future.",
+  //   rating: 5,
+  // },
+  // {
+  //   id: 3,
+  //   name: "Emily Rodriguez",
+  //   role: "Founder",
+  //   company: "DesignHub",
+  //   content:
+  //     "Clentro transformed our vision into reality faster than we thought possible. Their expertise in Next.js and modern web technologies is evident in every pixel. Outstanding work!",
+  //   rating: 5,
+  // },
   {
     id: 4,
     name: "David Thompson",
