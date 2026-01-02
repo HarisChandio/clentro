@@ -3,15 +3,15 @@ const BRAND_COLOR = "#FF5F00";
 export default function About() {
   const stats = [
     {
-      value: "50+",
-      label: "Products"
+      value: "5+",
+      label: "Products Shipped in < 100 Days"
     },
     {
       value: "15+",
       label: "Team Members"
     },
     {
-      value: "4.9/5",
+      value: "5/5",
       label: "Client Rating"
     },
     {

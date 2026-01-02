@@ -110,11 +110,11 @@ We’re engineers equipped with the best AI tools, turning early concepts into p
                   className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
                   style={{ color: BRAND_COLOR }}
                 >
-                  <CountUp end={50} suffix="+" />
+                  <CountUp end={5} suffix="+" />
                 </div>
 
                 <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
-                  Projects Shipped
+                  Products in &lt; 100 Days
                 </div>
               </div>
 
@@ -138,7 +138,7 @@ We’re engineers equipped with the best AI tools, turning early concepts into p
                   className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
                   style={{ color: BRAND_COLOR }}
                 >
-                  <CountUp end={98} suffix="%" />
+                  <CountUp end={100} suffix="%" />
                 </div>
                 <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
                   Client Satisfaction
