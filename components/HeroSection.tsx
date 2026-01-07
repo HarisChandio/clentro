@@ -55,10 +55,10 @@ export default function HeroSection() {
               </h1>
 
               <h1
-                className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none"
+                className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none italic"
                 style={{ color: BRAND_COLOR }}
               >
-                Fast.
+                FAST.
               </h1>
             </div>
 

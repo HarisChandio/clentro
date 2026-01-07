@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay, Navigation } from "swiper/modules";
-import { Quote, Star } from "lucide-react";
+import { Quote, Star, ExternalLink } from "lucide-react";
 
 const BRAND_COLOR = "#FF5F00";
 
@@ -16,6 +16,7 @@ interface Testimonial {
   content: string;
   rating: number;
   image?: string;
+  website?: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -26,6 +27,7 @@ const testimonials: Testimonial[] = [
     company: "Bavity LLC",
     content:
       "Working with Clentro was a game-changer for our business. They delivered our MVP in just 4 weeks, and the quality exceeded our expectations. Their AI-accelerated development approach is truly revolutionary.",
+    website: "https://bavity.com",
     rating: 5,
   },
   // {
@@ -48,25 +50,44 @@ const testimonials: Testimonial[] = [
   // },
   {
     id: 4,
-    name: "David Thompson",
-    role: "CTO",
-    company: "FinTech Innovations",
-    content:
-      "Professional, fast, and reliable. They delivered a complex SaaS platform with AI integration that our users love. The attention to detail and performance optimization was top-notch.",
+    name: "Tuoyo Omare",
+    role: "Founder",
+    company: "RevvAuto",
+    content:"Haris and his team have been excellent every step of the way. From early planning and technical scoping to day-to-day communication and final execution, the process has been smooth, organized and transparent. Haris consistently demonstrates strong ability to translate complex ideas into clear technical solutions, while keeping timelines and priorities aligned. His team is responsive, detail-oriented, and proactive in raising questions or suggesting improvements rather than simply following instructions. Haris and his team are a great choice, I would highly recommend and look forward to continuing our work together.",
+      
+    website: "https://revvautos.com",
     rating: 5,
   },
+
   {
     id: 5,
-    name: "Lisa Wang",
-    role: "Marketing Director",
-    company: "Global Retail Co",
+    name: "Sunny ",
+    role: "Founder and CEO",
+    company: "Advance Driver Safety",
     content:
-      "From concept to launch in record time! The Clentro team understood our needs perfectly and delivered a stunning website that's driving real business results. Couldn't be happier!",
+     "Excellent to work with. Haris went above and beyond with my requests, has expertice in the field and was available for adjustments at a moments notice. Will 100% work with him again and again in the future.",
+    website: "https://www.advancedriversafety.com/",
     rating: 5,
   },
 ];
 
+const CHAR_LIMIT = 200;
+
 export default function Testimonials() {
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
+  
+  const toggleExpand = (id: number) => {
+    setExpandedCards((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  };
+
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container mx-auto px-6">
@@ -95,45 +116,76 @@ export default function Testimonials() {
           }}
           className="!pb-4"
         >
-          {testimonials.map((testimonial) => (
-            <SwiperSlide key={testimonial.id}>
-              <div className="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
-                {/* Quote Icon */}
-                <div className="mb-6">
-                  <Quote
-                    className="w-10 h-10 opacity-20"
-                    style={{ color: BRAND_COLOR }}
-                  />
-                </div>
+          {testimonials.map((testimonial) => {
+            const isExpanded = expandedCards.has(testimonial.id);
+            const isLong = testimonial.content.length > CHAR_LIMIT;
+            const displayContent = isExpanded || !isLong 
+              ? testimonial.content 
+              : testimonial.content.substring(0, CHAR_LIMIT) + "...";
 
-                {/* Rating */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 fill-current"
+            return (
+              <SwiperSlide key={testimonial.id}>
+                <div className="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                  {/* Quote Icon */}
+                  <div className="mb-6">
+                    <Quote
+                      className="w-10 h-10 opacity-20"
                       style={{ color: BRAND_COLOR }}
                     />
-                  ))}
-                </div>
-
-                {/* Testimonial Content */}
-                <p className="text-gray-700 leading-relaxed mb-6 flex-grow">
-                  "{testimonial.content}"
-                </p>
-
-                {/* Author Info */}
-                <div className="border-t border-gray-200 pt-6">
-                  <div className="font-bold text-gray-900 text-lg">
-                    {testimonial.name}
                   </div>
-                  <div className="text-sm text-gray-600">
-                    {testimonial.role} at {testimonial.company}
+
+                  {/* Rating */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-current"
+                        style={{ color: BRAND_COLOR }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Testimonial Content */}
+                  <div className="flex-grow mb-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      "{displayContent}"
+                    </p>
+                    {isLong && (
+                      <button
+                        onClick={() => toggleExpand(testimonial.id)}
+                        className="mt-2 text-sm font-medium hover:underline transition-colors"
+                        style={{ color: BRAND_COLOR }}
+                      >
+                        {isExpanded ? "Read less" : "Read more"}
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Author Info */}
+                  <div className="border-t border-gray-200 pt-6">
+                    <div className="font-bold text-gray-900 text-lg">
+                      {testimonial.name}
+                    </div>
+                    <div className="text-sm text-gray-600 mb-2">
+                      {testimonial.role} at {testimonial.company}
+                    </div>
+                    {testimonial.website && (
+                      <a
+                        href={testimonial.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-medium hover:underline transition-colors"
+                        style={{ color: BRAND_COLOR }}
+                      >
+                        Visit website
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
 
         {/* Call to Action */}
