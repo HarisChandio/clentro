@@ -146,10 +146,15 @@ export default function Portfolio() {
     <section id="work" className="bg-gray-50 py-10 md:py-24">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <h2 className="text-3xl md:text-6xl text-center font-black text-gray-900 mb-12">
-          MVPs built with{" "}
-          <span style={{ color: BRAND_COLOR , fontStyle: "italic"}}>SPEED</span>
-        </h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-6xl font-black text-gray-900">
+            MVPs built with{" "}
+            <span style={{ color: BRAND_COLOR , fontStyle: "italic"}}>SPEED</span>
+          </h2>
+          <p className="mt-4 text-lg text-gray-600 font-semibold">
+            Sneak peek of some client projects (more coming soon!)
+          </p>
+        </div>
 
         {/* Swiper */}
         <Swiper
@@ -169,36 +174,45 @@ export default function Portfolio() {
           {projects.map((project) => (
             <SwiperSlide key={project.id}>
               <div
-                className="cursor-pointer hover:scale-105 transition-transform duration-300 my-2"
-                onClick={() => setSelectedProject(project)}
+                className="cursor-default hover:scale-105 transition-transform duration-300 my-2"
               >
-             
-
                 {/* Project Image */}
-                <div className="relative h-64 rounded-xl overflow-hidden mb-4 shadow-lg">
+                <div className="relative h-64 rounded-xl overflow-hidden mb-4 shadow-lg group">
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt="Project preview"
                     fill
-                    className="object-cover"
+                    className="object-cover blur-sm group-hover:blur-md transition-all duration-300"
                   />
+                  
+                  {/* Coming Soon Overlay */}
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div className="text-center px-4">
+                      <div className="text-white text-2xl md:text-3xl font-black mb-2">
+                        COMING SOON
+                      </div>
+                      <div className="text-white/90 text-sm font-semibold">
+                        {project.category}
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Project Title */}
-                <h3
-                  className="text-sm text-center font-semibold leading-tight"
+                {/* <h3
+                  className="text-sm text-center font-semibold leading-tight opacity-60"
                   style={{ color: BRAND_COLOR }}
                 >
-                  {project.title}
-                </h3>
+                  Client Project #{project.id}
+                </h3> */}
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
 
-      {/* Project Modal */}
-      {/* {selectedProject && ( */}
+      {/* Project Modal - Disabled for Coming Soon */}
+      {/* 
       <Dialog
         open={!!selectedProject}
         onOpenChange={() => setSelectedProject(null)}
@@ -207,13 +221,11 @@ export default function Portfolio() {
 
         {selectedProject && (
           <DialogContent className="min-w-[85vw] max-h-[95vh] w-full p-0 rounded-2xl overflow-y-auto">
-            {/* Close Button */}
             <DialogClose className="absolute right-4 top-4 z-20 rounded-full p-2 hover:bg-black/5 transition">
-              {/* <X className="h-5 w-5 text-black" /> */}
+              <X className="h-5 w-5 text-black" />
             </DialogClose>
 
             <div className="grid md:grid-cols-2">
-              {/* Left – Content */}
               <div className="p-6 md:p-10 space-y-6 order-2 md:order-1">
                 <div className="space-y-2">
                   <h2
@@ -265,7 +277,6 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Right – Image */}
               <div className="order-1 md:order-2 p-6 ">
                 <div className="relative h-64 md:h-full  rounded-xl overflow-hidden border border-black/10">
                   <Image
@@ -281,6 +292,7 @@ export default function Portfolio() {
           </DialogContent>
         )}
       </Dialog>
+      */}
     </section>
   );
 }
