@@ -17,15 +17,16 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative min-h-screen w-full overflow-hidden" aria-label="Hero section">
       {/* Video Background - Hidden on mobile */}
-      <div className="absolute inset-0 w-full h-full hidden md:block">
+      <div className="absolute inset-0 w-full h-full hidden md:block" aria-hidden="true">
         <video
           autoPlay
           loop
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
+          aria-label="Background video showcasing fast development"
         >
           <source src="/assets/video_2.mp4" type="video/mp4" />
         </video>
@@ -49,18 +50,16 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <div className="space-y-1 md:space-y-2">
+            <hgroup className="space-y-1 md:space-y-2">
               <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none text-gray-900">
-                Build. Ship
+                Build. Ship <span
+                  className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none italic"
+                  style={{ color: BRAND_COLOR }}
+                >
+                  FAST.
+                </span>
               </h1>
-
-              <h1
-                className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none italic"
-                style={{ color: BRAND_COLOR }}
-              >
-                FAST.
-              </h1>
-            </div>
+            </hgroup>
 
             {/* Description */}
             <p className="text-base md:text-lg text-gray-600 max-w-lg leading-relaxed">
@@ -70,12 +69,13 @@ We’re engineers equipped with the best AI tools, turning early concepts into p
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+            <nav className="flex flex-col sm:flex-row gap-3 md:gap-4" aria-label="Primary actions">
               <Button
                 size="lg"
                 onClick={() => handleScrollToSection("contact")}
                 className="rounded-full px-6 md:px-8 text-sm md:text-base font-semibold group cursor-pointer"
                 style={{ backgroundColor: BRAND_COLOR }}
+                aria-label="Start your project - Contact us"
               >
                 START YOUR PROJECT
                 <svg
@@ -83,6 +83,7 @@ We’re engineers equipped with the best AI tools, turning early concepts into p
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -97,18 +98,20 @@ We’re engineers equipped with the best AI tools, turning early concepts into p
                 variant="outline"
                 onClick={() => handleScrollToSection("capabilities")}
                 className="rounded-full px-6 md:px-8 text-sm md:text-base font-semibold border-2 border-[#FF5F00] text-black hover:bg-[#FF5F00] hover:text-white group cursor-pointer"
+                aria-label="View our capabilities and services"
               >
                 VIEW CAPABILITIES
               </Button>
-            </div>
+            </nav>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-6 md:pt-8 text-center">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-6 md:pt-8 text-center" role="region" aria-label="Company statistics">
               {/* Stat 1 */}
               <div className="flex flex-col items-center">
                 <div
                   className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
                   style={{ color: BRAND_COLOR }}
+                  aria-label="5 plus products delivered in less than 100 days"
                 >
                   <CountUp end={5} suffix="+" />
                 </div>
@@ -123,6 +126,7 @@ We’re engineers equipped with the best AI tools, turning early concepts into p
                 <div
                   className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
                   style={{ color: BRAND_COLOR }}
+                  aria-label="45 days average delivery time"
                 >
                   <CountUp end={45} suffix="D" />
                 </div>
@@ -137,6 +141,7 @@ We’re engineers equipped with the best AI tools, turning early concepts into p
                 <div
                   className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
                   style={{ color: BRAND_COLOR }}
+                  aria-label="100 percent client satisfaction rate"
                 >
                   <CountUp end={100} suffix="%" />
                 </div>
