@@ -25,13 +25,15 @@ export default function HeroSection() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover will-change-auto"
           aria-label="Background video showcasing fast development"
+          style={{ transform: 'translateZ(0)' }}
         >
           <source src="/assets/video_2.mp4" type="video/mp4" />
         </video>
         {/* Overlay to make content more readable */}
-        <div className="absolute inset-0 "></div>
+        <div className="absolute inset-0"></div>
       </div>
 
       {/* Content Overlay */}
