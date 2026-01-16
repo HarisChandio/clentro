@@ -4,14 +4,14 @@ export default function About() {
   const stats = [
     {
       value: "5+",
-      label: "Products Launched with 3 months"
+      label: "Products Shipped in < 100 Days"
     },
     {
       value: "15+",
       label: "Team Members"
     },
     {
-      value: "4.9/5",
+      value: "5/5",
       label: "Client Rating"
     },
     {
@@ -44,22 +44,27 @@ export default function About() {
 
             {/* Stats Grid */}
            <div className="grid grid-cols-2 gap-2 mt-12 max-w-md">
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition"
-                >
+              {stats.map((stat, index) => {
+                // Extract numbers and symbols
+                const match = stat.value.match(/^(\d+(?:\.\d+)?)(.*)/);
+                const number = match ? match[1] : stat.value;
+                const symbol = match ? match[2] : '';
+                
+                return (
                   <div
-                    className="text-3xl md:text-4xl font-extrabold mb-1"
-                    style={{ color: BRAND_COLOR }}
+                    key={index}
+                    className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition"
                   >
-                    {stat.value}
+                    <div className="text-3xl md:text-4xl font-extrabold mb-1">
+                      <span style={{ color: BRAND_COLOR }}>{number}</span>
+                      <span className="text-2xl md:text-3xl font-semibold text-black">{symbol}</span>
+                    </div>
+                    <div className="text-sm text-gray-600 font-medium">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="text-sm text-gray-600 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 

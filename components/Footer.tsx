@@ -110,7 +110,7 @@ export default function Footer() {
             {/* Social */}
             <div className="flex gap-4 mt-6">
               <a
-                href="https://www.linkedin.com/company/110671023/admin/dashboard"
+                href="https://www.linkedin.com/company/clentro/"
                 className="hover:text-gray-700 transition"
               >
                 <Linkedin size={18} />

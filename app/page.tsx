@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Capabilities from "@/components/Capabilities";
 import Portfolio from "@/components/Portfolio";
+import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import ShipFastMethodology from "@/components/ShipFastMethodology";
 import { Contact } from "lucide-react";
@@ -20,6 +21,8 @@ export default function Home() {
       <div id="work">
         <Portfolio />
       </div>
+      
+      <Testimonials />
       
       <div id="process">
         <ShipFastMethodology />
