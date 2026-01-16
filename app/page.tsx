@@ -7,6 +7,7 @@ import ShipFastMethodology from "@/components/ShipFastMethodology";
 import { Contact } from "lucide-react";
 import ContactPage from "./contact/page";
 import Footer from "@/components/Footer";
+import BlogSection from "@/components/Blog";
 
 const BRAND_COLOR = "#FF5F00";
 
@@ -27,7 +28,9 @@ export default function Home() {
       <div id="capabilities">
         <Capabilities />
       </div>
-      
+      <div id="blog">
+        <BlogSection/>
+      </div>
       <About />
 
       <div id="contact">
