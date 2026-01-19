@@ -1,12 +1,13 @@
 "use client";
 import Link from "next/link";
+import blog1 from "@/public/assets/blogHero.png";
 
 export default function BlogSection() {
   const blog = {
     slug: "saas-development-services-build-ship-fast",
     title: "SaaS Development Services That Help You Build & Ship Faster",
     description: "Learn how Clentro helps startups build and scale SaaS products quickly without compromising quality.",
-    image: "/assets/BlogHero.png", // make sure image exists in public/assets/
+    image: blog1.src, 
   };
 
   return (

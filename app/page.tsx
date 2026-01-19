@@ -34,7 +34,7 @@ export default function Home() {
       <div id="capabilities">
         <Capabilities />
       </div>
-      <div id="blog">
+      <div id="blogs">
         <BlogSection />
       </div>
       <About />
