@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Head from "next/head";
+import BlogHero from "@/public/assets/blogHero.png";
 
 export default function BlogPage() {
   const faqSchema = {
@@ -94,7 +95,7 @@ export default function BlogPage() {
 
       <main className="max-w-4xl mx-auto px-4 py-20 space-y-4">
         <img
-          src="/assets/BlogHero.png"
+          src={BlogHero.src}
           alt="SaaS Development Services"
           className="w-[70%] h-auto mx-auto object-cover"
         />
