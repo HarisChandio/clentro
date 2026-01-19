@@ -1,5 +1,13 @@
 // app/blog/page.tsx
 "use client";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import Head from "next/head";
 
 export default function BlogPage() {
@@ -69,6 +77,7 @@ export default function BlogPage() {
 
   return (
     <>
+      <Header />
       <Head>
         <title>
           SaaS Development Services to Build & Scale Faster | Clentro
@@ -83,7 +92,7 @@ export default function BlogPage() {
         />
       </Head>
 
-      <main className="max-w-4xl mx-auto px-4 py-6 space-y-4">
+      <main className="max-w-4xl mx-auto px-4 py-20 space-y-4">
         <img
           src="/assets/BlogHero.png"
           alt="SaaS Development Services"
@@ -236,15 +245,20 @@ export default function BlogPage() {
         </p>
         <img src="/assets/conclusions.png" alt="SaaS Development Services" />
         <h2 className="text-2xl font-bold mt-6">FAQs</h2>
-        <div className="space-y-3">
+        <Accordion type="single"  defaultValue="faq-0" collapsible className="space-y-3">
           {faqs.map((faq, index) => (
-            <div key={index}>
-              <h3 className="font-bold text-lg mb-1xl">{faq.question}</h3>
-              <p className="text-gray-700">{faq.answer}</p>
-            </div>
+            <AccordionItem key={index} value={`faq-${index}`}>
+              <AccordionTrigger className="text-left font-bold text-lg">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-700">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </main>
+      <Footer />
     </>
   );
 }
