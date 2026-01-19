@@ -99,6 +99,7 @@ export default function BlogPage() {
           alt="SaaS Development Services"
           className="w-[70%] h-auto mx-auto object-cover"
         />
+        
         <h1 className="text-4xl font-bold">
           SaaS Development Services That Help You Build & Ship Faster
         </h1>

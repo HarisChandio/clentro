@@ -23,9 +23,9 @@ export default function About() {
   return (
     <section id="about" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2  items-center">
           {/* Left Content */}
-          <div>
+          <div >
             <span 
               className="text-xs font-bold tracking-wider px-4 py-2 rounded-full inline-block mb-6"
               style={{ backgroundColor: BRAND_COLOR, color: 'white' }}
@@ -70,7 +70,7 @@ export default function About() {
 
 
           {/* Right Content - Images Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <div className="aspect-[4/3] bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl overflow-hidden flex items-center justify-center">
                 <svg className="w-16 h-16 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,7 +95,10 @@ export default function About() {
                 </svg>
               </div>
             </div>
-          </div>
+          </div> */}
+          <div className="  flex justify-end items-center">
+            <img src="/assets/shipfast.png"/>
+            </div>
         </div>
       </div>
     </section>

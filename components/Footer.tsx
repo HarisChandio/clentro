@@ -55,7 +55,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="#about"
+                  href="/#about"
                   className="hover:text-[#FF5F00] transition-colors"
                 >
                   About
@@ -64,7 +64,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#capabilities"
+                  href="/#capabilities"
                   className="hover:text-[#FF5F00] transition-colors"
                 >
                   Capabilities
@@ -73,16 +73,23 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#work"
+                  href="/#work"
                   className="hover:text-[#FF5F00] transition-colors"
                 >
                   Work
                 </a>
               </li>
-
+<li>
+                <a
+                  href="/#blogs"
+                  className="hover:text-[#FF5F00] transition-colors"
+                >
+                  Blogs
+                </a>
+              </li>
               <li>
                 <a
-                  href="#contact"
+                  href="/#contact"
                   className="hover:text-[#FF5F00] transition-colors"
                 >
                   Contact
