@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://clentro.io'),
   title: {
-    default: 'Clentro - Build. Ship. Fast. | High-Velocity Engineering',
+    default: 'Clentro: Build Fast, Ship Fast – AI-Powered Product Development',
     template: '%s | Clentro'
   },
   description: "Have an idea or a vibe-coded product you want live—fast? We're engineers equipped with the best AI tools, turning early concepts into production-ready software for SaaS and AI startups.",
