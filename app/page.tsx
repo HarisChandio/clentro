@@ -1,57 +1,64 @@
+import About from "@/components/About";
+import BlogSection from "@/components/Blog";
+import Capabilities from "@/components/Capabilities";
+import ContactSection from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import Capabilities from "@/components/Capabilities";
 import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
-import About from "@/components/About";
 import ShipFastMethodology from "@/components/ShipFastMethodology";
-import { Contact } from "lucide-react";
-import ContactPage from "./contact/page";
-import Footer from "@/components/Footer";
-import BlogSection from "@/components/Blog";
+import Testimonials from "@/components/Testimonials";
 
 const BRAND_COLOR = "#FF5F00";
+export const metadata = {
+  title: "Clentro - Build. Ship. Fast.",
+  description: "High-velocity engineering for SaaS and AI startups.",
+};
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
       <HeroSection />
-      
+
       <div id="work">
         <Portfolio />
       </div>
-      
+
       <Testimonials />
-      
+
       <div id="process">
         <ShipFastMethodology />
       </div>
-      
+
       <div id="capabilities">
         <Capabilities />
       </div>
       <div id="blog">
-        <BlogSection/>
+        <BlogSection />
       </div>
       <About />
 
       <div id="contact">
-        <ContactPage />
+        <ContactSection />
       </div>
-<Footer />
+      <Footer />
       {/* Floating Email Button */}
-      <a 
+      <a
         href="mailto:contact@clentro.io"
         className="fixed bottom-8 right-8 z-50 group"
         title="Email us"
       >
         <div className="relative">
-          <div 
+          <div
             className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300"
             style={{ backgroundColor: BRAND_COLOR }}
           >
-            <svg className="w-7 h-7 md:w-9 md:h-9 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <svg
+              className="w-7 h-7 md:w-9 md:h-9 text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
             </svg>
@@ -67,4 +74,3 @@ export default function Home() {
     </div>
   );
 }
-            
