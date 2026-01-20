@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Portfolio from "@/components/Portfolio";
+import RecentProjects from "@/components/RecentProjects";
 import ShipFastMethodology from "@/components/ShipFastMethodology";
 import Testimonials from "@/components/Testimonials";
 
@@ -22,7 +23,8 @@ export default function Home() {
       <HeroSection />
 
       <div id="work">
-        <Portfolio />
+        {/* <Portfolio /> */}
+        <RecentProjects/>
       </div>
 
       <Testimonials />
@@ -41,6 +43,7 @@ export default function Home() {
 
       <div id="contact">
         <ContactSection />
+        
       </div>
       <Footer />
       {/* Floating Email Button */}
