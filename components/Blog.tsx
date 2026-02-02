@@ -3,6 +3,8 @@ import Link from "next/link";
 import blog1 from "@/public/assets/blogHero.png";
 import blog2 from "@/public/assets/blog2.png";
 import blog3 from "@/public/assets/blog3.png";
+import blog4 from "@/public/assets/blog4.jpg";
+import blog5 from "@/public/assets/blog5.jpg";
 
 const BRAND_COLOR = "#FF5F00";
 
@@ -31,6 +33,22 @@ export default function BlogSection() {
       description:
         "Explore how AI Development Services can transform your business with intelligent applications. Learn how Clentro builds innovative AI solutions to drive growth.",
       image: blog3.src,
+    },
+    {
+      slug: "modern-data-platform-architecture",
+      href: "/blog/modern-data-platform-architecture",
+      title: "Modern Data Platform Architecture",
+      description:
+        "Learn how a modern data platform architecture solves data quality and integrations, and adopts an API‑first cloud‑native design to deliver AI‑ready insights",
+      image: blog4.src,
+    },
+    {
+      slug: "autonomous-ai-agents",
+      href: "/blog/autonomous-ai-agents",
+      title: "Autonomous AI Agents",
+      description:
+        "Explore how AI Development Services can transform your business with intelligent applications. Learn how Clentro builds innovative AI solutions to drive growth.",
+      image: blog5.src,
     },
   ];
 
