@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import PortfolioModal from "./PortfolioModal";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 const BRAND_COLOR = "#FF5F00";
@@ -17,48 +16,53 @@ interface Project {
   role: string;
   skills: string[];
   image: string;
+  link: string;
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    category: "AI SaaS PLATFORM",
+    category: "CONTENT PLATFORM",
     title: "Inknaija",
-    subtitle: "AI-powered design platform",
+    subtitle: "Nigeria’s home for stories and ideas",
     description: "Shipped a production-ready AI SaaS platform enabling users to generate presentations, graphics, and documents from text prompts.",
     role: "Frontend Developer",
-    skills: ["Next.js", "Tailwind CSS", "AI Integration"],
+    skills: ["Next.js", "Django", "AI Integration"],
     image: "/assets/portfolio/inknaija.png",
+    link: "https://inknaija.com",
   },
   {
     id: 2,
     category: "SaaS WEB DEVELOPMENT",
     title: "Advance Drivers Safety",
-    subtitle: "Modern e-commerce platform",
-    description: "Built a headless commerce platform for modern retailers using high-velocity development practices.",
+    subtitle: "Safety training & insights site",
+    description: "Road-safety platform turning compliance into measurable risk reduction with training and incident tracking.",
     role: "Lead Frontend Developer",
-    skills: ["React", "Next.js", "GraphQL"],
+    skills: ["React", "Next.js", "Vercel"],
     image: "/assets/portfolio/ads.png",
+    link: "https://www.advancedriversafety.com/",
   },
   {
     id: 3,
     category: "E-COMMERCE WEBSITE",
     title: "Cre360 AI",
-    subtitle: "Premium furniture e-commerce",
+    subtitle: "Real estate lead capture.",
     description: "Engineered a high-performance e-commerce platform with responsive product catalogs and dynamic filtering.",
     role: "Full-Stack Developer",
-    skills: ["Next.js", "Shopify", "Stripe"],
+    skills: ["GenAI", "LLMs", "Stripe"],
     image: "/assets/portfolio/cre.png",
+    link: "https://cre-frontend-skpsm.ondigitalocean.app/",
   },
   {
     id: 4,
     category: "E-COMMERCE PLATFORM",
-    title: "Revv",
-    subtitle: "Next-gen retail platform",
+    title: "RevvAuto",
+    subtitle: "Auto Savings Account for drivers",
     description: "Developed a modern e-commerce platform with AI-powered recommendations and advanced search.",
     role: "Frontend Developer",
-    skills: ["React", "TypeScript", "AI"],
+    skills: ["Java", "Fintech", "Stripe"],
     image: "/assets/portfolio/revv.png",
+    link: "https://revvautos.com",
   },
   // {
   //   id: 5,
@@ -103,8 +107,6 @@ const projects: Project[] = [
 ];
 
 export default function Portfolio() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -143,10 +145,7 @@ export default function Portfolio() {
             <motion.div
               key={project.id}
               layout
-              onClick={() => {
-                setSelectedProject(project);
-                setIsModalOpen(true);
-              }}
+              onClick={() => window.open(project.link, '_blank', 'noopener,noreferrer')}
               onMouseEnter={() => !isMobile && setHoveredId(project.id)}
               onMouseLeave={() => !isMobile && setHoveredId(null)}
               onViewportEnter={() => isMobile && setHoveredId(project.id)}
@@ -204,13 +203,6 @@ export default function Portfolio() {
           ))}
         </div>
       </div>
-
-      {/* Details Modal */}
-      <PortfolioModal
-        project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={setIsModalOpen}
-      />
     </section>
   );
 }
