@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import blog1 from "@/public/assets/blogHero.png";
-import blog2 from "@/public/assets/blog2.png";
-import blog3 from "@/public/assets/blog3.png";
-import blog4 from "@/public/assets/blog4.jpg";
-import blog5 from "@/public/assets/blog5.jpg";
+import blog1 from "@/public/assets/saas.jpeg";
+import blog2 from "@/public/assets/ai.jpeg";
+import blog3 from "@/public/assets/mobile.jpeg";
+import blog4 from "@/public/assets/data.jpeg";
+import blog5 from "@/public/assets/aiagent.jpg";
 
 const BRAND_COLOR = "#FF5F00";
 
