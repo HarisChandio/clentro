@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Portfolio from "@/components/Portfolio";
 import ShipFastMethodology from "@/components/ShipFastMethodology";
-import Testimonials from "@/components/Testimonials";
+import Testimonials from "@/components/Reviews";
 
 const BRAND_COLOR = "#FF5F00";
 export const metadata = {
