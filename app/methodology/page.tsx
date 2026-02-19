@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import ShipFastMethodology from "@/components/ShipFastMethodology";
 import type { Metadata } from "next";
 
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 export default function MethodologyPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* <Header /> */}
       <ShipFastMethodology />
     </div>
   );

@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4 w-36 h-auto ">
-              <Image src={Clentro} alt="clentro" />
+              <Image src={Clentro} alt="Clentro – SaaS and AI product development company" />
             </div>
             {/* <h3 className="text-2xl font-bold text-[#FF5F00] mb-4">
               Clentro<span style={{ color: BRAND_COLOR }}>.</span>

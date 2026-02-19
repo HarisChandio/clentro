@@ -5,6 +5,7 @@ import blog2 from "@/public/assets/ai.jpeg";
 import blog3 from "@/public/assets/mobile.jpeg";
 import blog4 from "@/public/assets/data.jpeg";
 import blog5 from "@/public/assets/aiagent.jpg";
+import blog6 from "@/public/assets/intelligent-application.jpeg";
 
 const BRAND_COLOR = "#FF5F00";
 
@@ -20,7 +21,7 @@ export default function BlogSection() {
     },
     {
       slug: "ai-development-services-intelligent-applications",
-      href: "/ai-development-services-intelligent-applications",
+      href: "/blog/ai-development-services-intelligent-applications",
       title: "AI Development Team Building Intelligent Digital Solutions",
       description:
         "Building AI-powered dashboards, automation tools, and intelligent systems that drive smarter decisions.",
@@ -28,7 +29,7 @@ export default function BlogSection() {
     },
     {
       slug: "custom-mobile-app-development",
-      href: "/custom-mobile-app-development",
+      href: "/blog/custom-mobile-app-development",
       title: "Custom Mobile App Development",
       description:
         "Explore how AI Development Services can transform your business with intelligent applications. Learn how Clentro builds innovative AI solutions to drive growth.",
@@ -49,6 +50,15 @@ export default function BlogSection() {
       description:
         "Explore how AI Development Services can transform your business with intelligent applications. Learn how Clentro builds innovative AI solutions to drive growth.",
       image: blog5.src,
+    },
+    {
+      slug: "intelligent-application-development",
+      href: "/blog/intelligent-application-development",
+      title: "Intelligent Application Development for Scalable SaaS, AI & Mobile Products | Clentro",
+      description:
+        "Build scalable SaaS, AI, and mobile applications with Clentro’s intelligent application development services. High-velocity engineering, autonomous AI systems, and cloud-native architecture.",
+      alt: "Intelligent Application Development by Clentro for scalable SaaS platforms, AI automation, mobile app development, and cloud-native architecture.",
+      image: blog6.src,
     },
   ];
 
@@ -74,15 +84,15 @@ export default function BlogSection() {
               <div className="relative h-56 overflow-hidden bg-gray-200">
                 <img
                   src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-full object-fill group-hover:scale-105 transition-transform duration-300"
+                  alt={blog?.alt ? blog.alt : blog.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1">
                   {blog.title}
                 </h3>
-                <p className="text-gray-600 text-sm">{blog.description}</p>
+                <p className="text-gray-600 text-sm line-clamp-3">{blog.description}</p>
               </div>
             </Link>
           ))}

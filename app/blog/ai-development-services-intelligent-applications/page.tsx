@@ -1,7 +1,6 @@
 // app/blog/page.tsx
 "use client";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+
 import {
     Accordion,
     AccordionContent,
@@ -92,7 +91,6 @@ export default function BlogPage() {
 
     return (
         <>
-            <Header />
             <Head>
                 <title>AI Development Services: Boost Your Business with AI</title>
                 <meta
@@ -264,7 +262,6 @@ export default function BlogPage() {
                     ))}
                 </Accordion>
             </main>
-            <Footer />
         </>
     );
 }

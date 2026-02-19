@@ -1,7 +1,6 @@
 // app/blog/[slug]/page.tsx
 "use client";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+
 import {
   Accordion,
   AccordionContent,
@@ -20,33 +19,31 @@ export default function BlogPage() {
   if (!data) {
     return (
       <>
-        <Header />
         <div className="min-h-screen flex items-center justify-center">
           <h1 className="text-2xl font-bold">Blog post not found</h1>
         </div>
-        <Footer />
       </>
     );
   }
 
-  const { title, description, heroImage, content, faqs } = data;
+  const { title, description, heroImage, content, faqs, alt } = data;
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs?.map((faq: any) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })) || [],
+    mainEntity:
+      faqs?.map((faq: any) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })) || [],
   };
 
   return (
     <>
-      <Header />
       {/* Note: next/head does not work in App Router as expected, but keeping for compatibility if utilized elsewhere */}
       <Head>
         <title>{title} | Clentro</title>
@@ -61,7 +58,7 @@ export default function BlogPage() {
         {heroImage && (
           <img
             src={heroImage.src}
-            alt={title}
+            alt={alt ? alt : title}
             className="w-[70%] h-auto mx-auto object-cover"
           />
         )}
@@ -71,7 +68,10 @@ export default function BlogPage() {
         {content.map((block: any, index: number) => {
           if (block.type === "p") {
             return (
-              <p key={index} dangerouslySetInnerHTML={{ __html: block.content }} />
+              <p
+                key={index}
+                dangerouslySetInnerHTML={{ __html: block.content }}
+              />
             );
           }
           if (block.type === "h2") {
@@ -108,7 +108,12 @@ export default function BlogPage() {
           }
           if (block.type === "img") {
             return (
-              <img key={index} src={block.src} alt={block.alt} className="my-4 w-full h-auto" />
+              <img
+                key={index}
+                src={block.src}
+                alt={block.alt}
+                className="my-4 w-full h-auto"
+              />
             );
           }
           return null;
@@ -117,7 +122,12 @@ export default function BlogPage() {
         {faqs && faqs.length > 0 && (
           <>
             <h2 className="text-2xl font-bold mt-6">FAQs</h2>
-            <Accordion type="single" defaultValue="faq-0" collapsible className="space-y-3">
+            <Accordion
+              type="single"
+              defaultValue="faq-0"
+              collapsible
+              className="space-y-3"
+            >
               {faqs.map((faq: any, index: number) => (
                 <AccordionItem key={index} value={`faq-${index}`}>
                   <AccordionTrigger className="text-left font-bold text-lg">
@@ -132,7 +142,6 @@ export default function BlogPage() {
           </>
         )}
       </main>
-      <Footer />
     </>
   );
 }
