@@ -2,8 +2,6 @@ import About from "@/components/About";
 import BlogSection from "@/components/Blog";
 import Capabilities from "@/components/Capabilities";
 import ContactSection from "@/components/ContactForm";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Portfolio from "@/components/Portfolio";
 import ShipFastMethodology from "@/components/ShipFastMethodology";
@@ -18,7 +16,6 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       <HeroSection />
 
       <div id="work">
@@ -42,7 +39,6 @@ export default function Home() {
       <div id="contact">
         <ContactSection />
       </div>
-      <Footer />
       {/* Floating Email Button */}
       <a
         href="mailto:contact@clentro.io"

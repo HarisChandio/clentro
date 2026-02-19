@@ -101,7 +101,6 @@ const fadeLeft: Variants = {
 
 return (
   <section className="container mx-auto px-6 py-16 md:py-24">
-    {/* Header */}
     <motion.div
       variants={fadeUp}
       initial="hidden"

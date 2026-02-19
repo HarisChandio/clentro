@@ -108,7 +108,6 @@ return (
     }}
   >
     <div className="max-w-6xl mx-auto px-6">
-      {/* Header */}
       <motion.div
         className="text-center mb-14"
         variants={{
