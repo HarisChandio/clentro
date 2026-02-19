@@ -29,7 +29,7 @@ export default function BlogPage() {
     );
   }
 
-  const { title, description, heroImage, content, faqs } = data;
+  const { title, description, heroImage, content, faqs, alt } = data;
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -61,7 +61,7 @@ export default function BlogPage() {
         {heroImage && (
           <img
             src={heroImage.src}
-            alt={title}
+            alt={alt ? alt : title}
             className="w-[70%] h-auto mx-auto object-cover"
           />
         )}

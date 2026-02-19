@@ -56,7 +56,7 @@ const handleSmoothScroll = (
           <Link href="/" className="flex items-center">
             <div className=" w-32 h-auto ">
 
-            <Image src={Clentro} alt="clentro" />
+            <Image src={Clentro} alt="Clentro logo – Build. Ship. Fast. SaaS and AI development services for startups" />
             </div>
           </Link>
 
