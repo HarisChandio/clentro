@@ -1,104 +1,125 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const BRAND_COLOR = "#FF5F00";
 
 export default function About() {
   const stats = [
     {
       value: "5+",
-      label: "Products Shipped in < 100 Days"
+      label: "Products Shipped in < 100 Days",
+      description: "Rapid delivery without compromising quality",
     },
     {
       value: "15+",
-      label: "Team Members"
+      label: "Team Members",
+      description: "Senior engineers and design experts",
     },
     {
       value: "5/5",
-      label: "Client Rating"
+      label: "Client Rating",
+      description: "Consistently exceeding expectations",
     },
     {
       value: "100%",
-      label: "Remote Team"
-    }
+      label: "Remote Team",
+      description: "Distributed globally, united by mission",
+    },
   ];
 
   return (
-    <section id="about" className="bg-gray-50 py-16 md:py-24">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2  items-center">
-          {/* Left Content */}
-          <div >
-            <span 
-              className="text-xs font-bold tracking-wider px-4 py-2 rounded-full inline-block mb-6"
-              style={{ backgroundColor: BRAND_COLOR, color: 'white' }}
-            >
-              ABOUT CLENTRO
+    <section id="about" className="bg-white py-24 relative overflow-hidden">
+      {/* Background decorations */}
+
+      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50" />
+
+      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-gray-50 rounded-full blur-3xl opacity-50" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content - Text */}
+
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:pr-8"
+          >
+            <span className="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-8 inline-block bg-orange-50 text-orange-600 border border-orange-100">
+              About Clentro
             </span>
-            <h2 className="text-3xl md:text-6xl font-black text-gray-900 mb-6">
-                Engineers who <span style={{ color: BRAND_COLOR }}> ship fast,</span> without compromise.
+
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
+              Engineers who{" "}
+              <span style={{ color: BRAND_COLOR }}>ship fast,</span> without
+              compromise.
             </h2>
+
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              We're a distributed team of senior engineers, product designers, and AI specialists who've shipped products that scaled to 100K+ users. We leverage AI-powered tools like Cursor and Claude to 10x our development speed.
-            </p>
-            <p className="text-base text-gray-600 leading-relaxed">
-              Our Ship Fast methodology combines battle-tested engineering practices with cutting-edge AI acceleration. Speed and quality aren't mutually exclusive—they're requirements for modern product development.
+              We're a distributed team of senior engineers, product designers,
+              and AI specialists who've shipped products that scaled to 100K+
+              users. We leverage AI-powered tools like Cursor and Claude to 10x
+              our development speed.
             </p>
 
-            {/* Stats Grid */}
-           <div className="grid grid-cols-2 gap-2 mt-12 max-w-md">
-              {stats.map((stat, index) => {
-                // Extract numbers and symbols
-                const match = stat.value.match(/^(\d+(?:\.\d+)?)(.*)/);
-                const number = match ? match[1] : stat.value;
-                const symbol = match ? match[2] : '';
-                
-                return (
-                  <div
-                    key={index}
-                    className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition"
-                  >
-                    <div className="text-3xl md:text-4xl font-extrabold mb-1">
-                      <span style={{ color: BRAND_COLOR }}>{number}</span>
-                      <span className="text-2xl md:text-3xl font-semibold text-black">{symbol}</span>
-                    </div>
-                    <div className="text-sm text-gray-600 font-medium">
-                      {stat.label}
-                    </div>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              Our Ship Fast methodology combines battle-tested engineering
+              practices with cutting-edge AI acceleration. Speed and quality
+              aren't mutually exclusive—they're requirements for modern product
+              development.
+            </p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-block p-4 bg-gray-50 rounded-xl border-l-4 border-orange-500"
+            >
+              <p className="text-gray-900 font-medium italic">
+                "We don't just build software; we build businesses."
+              </p>
+            </motion.div>
+          </motion.div>
+          {/* Right Content - Stats Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+            {stats.map((stat, index) => {
+              // Extract numbers and symbols
+              const match = stat.value.match(/^(\d+(?:\.\d+)?)(.*)/);
+              const number = match ? match[1] : stat.value;
+              const symbol = match ? match[2] : "";
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                  className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-100 transition-all duration-300 group relative overflow-hidden"
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-orange-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className="text-5xl font-extrabold mb-2 text-gray-900 tracking-tight">
+                    {number}
+                    <span className="text-3xl text-orange-500 ml-1">
+                      {symbol}
+                    </span>
                   </div>
-                );
-              })}
-            </div>
+
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
+                    {stat.label}
+                  </h3>
+
+                  <p className="text-sm text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors">
+                    {stat.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
-
-
-          {/* Right Content - Images Grid */}
-          {/* <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-4">
-              <div className="aspect-[4/3] bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl overflow-hidden flex items-center justify-center">
-                <svg className="w-16 h-16 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl overflow-hidden flex items-center justify-center">
-                <svg className="w-16 h-16 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                </svg>
-              </div>
-            </div>
-            <div className="space-y-4 pt-8">
-              <div className="aspect-[4/3] bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl overflow-hidden flex items-center justify-center">
-                <svg className="w-16 h-16 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                </svg>
-              </div>
-              <div className="aspect-[4/3] bg-gradient-to-br from-green-100 to-green-200 rounded-2xl overflow-hidden flex items-center justify-center">
-                <svg className="w-16 h-16 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-            </div>
-          </div> */}
-          <div className="  flex justify-end items-center">
-            <img src="/assets/shipfast.png"/>
-            </div>
         </div>
       </div>
     </section>
