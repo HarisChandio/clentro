@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import blog1 from "@/public/assets/saas.jpeg";
 import blog2 from "@/public/assets/ai.jpeg";
 import blog3 from "@/public/assets/mobile.jpeg";
@@ -75,25 +76,36 @@ export default function BlogSection() {
           </span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
-            <Link
-              key={blog.slug}
-              href={blog.href}
-              className="block bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer"
-            >
-              <div className="relative h-56 overflow-hidden bg-gray-200">
-                <img
-                  src={blog.image}
-                  alt={blog?.alt ? blog.alt : blog.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1">
-                  {blog.title}
-                </h3>
-                <p className="text-gray-600 text-sm line-clamp-3">{blog.description}</p>
-              </div>
+          {blogs.map((blog, index) => (
+            <Link key={blog.slug} href={blog.href} className="block group">
+              <motion.article
+                initial={{ opacity: 0, y: 24, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ y: -6, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.18)" }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="bg-white shadow-md rounded-xl overflow-hidden cursor-pointer h-full flex flex-col"
+              >
+                <div className="relative h-56 overflow-hidden bg-gray-200">
+                  <motion.img
+                    src={blog.image}
+                    alt={blog?.alt ? blog.alt : blog.title}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.06 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                </div>
+                <div className="p-6 flex flex-col grow">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1">
+                    {blog.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm line-clamp-3">{blog.description}</p>
+                </div>
+              </motion.article>
             </Link>
           ))}
         </div>
