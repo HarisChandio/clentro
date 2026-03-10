@@ -64,6 +64,17 @@ const projects: Project[] = [
     image: "/assets/portfolio/revv.png",
     link: "https://revvautos.com",
   },
+  {
+    id: 5,
+    category: "SaaS PLATFORM",
+    title: "BlackGrid",
+    subtitle: "SaaS Platform for AI-powered business analysis and financial insights.",
+    description: "Developed a SaaS platform with AI-powered business analysis and financial insights.",
+    role: "Full-Stack Developer",
+    skills: ["Next.js", "AI", "Stripe", "Plaid", "Quick Book"],
+    image: "/assets/portfolio/blackgrid.jpeg",
+    link: "http://34.224.68.241/",
+  },
   // {
   //   id: 5,
   //   category: "TRAVEL & TOURISM",
