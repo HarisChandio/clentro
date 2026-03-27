@@ -72,8 +72,8 @@ const projects: Project[] = [
     description: "Developed a SaaS platform with AI-powered business analysis and financial insights.",
     role: "Full-Stack Developer",
     skills: ["Next.js", "AI", "Stripe", "Plaid", "Quick Book"],
-    image: "/assets/portfolio/blackgrid.jpeg",
-    link: "http://34.224.68.241/",
+    image: "/assets/portfolio/blackgrid.png",
+    link: "http://getblackgrid.com/",
   },
   // {
   //   id: 5,
