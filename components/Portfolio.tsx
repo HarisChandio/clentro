@@ -174,7 +174,7 @@ export default function Portfolio() {
                 />
 
                 {/* Overlay Gradient - Stronger on non-active to dim them */}
-                <div className={`absolute inset-0 bg-black transition-opacity duration-300 ${activeId === project.id ? 'opacity-10' : 'opacity-30 hover:opacity-10'}`} />
+                <div className={`absolute inset-0 bg-black transition-opacity duration-300 ${activeId === project.id ? 'opacity-0' : 'opacity-5 hover:opacity-10'}`} />
 
                 {/* Vertical Text for Inactive State (Desktop Only) */}
                 {activeId !== project.id && (
@@ -188,26 +188,26 @@ export default function Portfolio() {
 
               {/* Active Content Overlay */}
               <div
-                className={`absolute inset-0 p-8 flex flex-col justify-end bg-linear-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 ${activeId === project.id ? "opacity-100" : "opacity-0"
+                className={`absolute bottom-0 left-0 right-0 p-4 md:p-8 flex flex-col justify-end  transition-opacity duration-300 ${activeId === project.id ? "opacity-100" : "opacity-0"
                   }`}
               >
                 <div className="transform translate-y-0 transition-transform duration-500 delay-100">
-                  <span className="inline-block px-3 py-1 bg-[#FF5F00] text-white text-xs font-bold rounded-full mb-3 shadow-lg">
+                  {/* <span className="inline-block px-3 py-1 bg-[#FF5F00] text-white text-xs font-bold rounded-full mb-3 shadow-lg">
                     {project.category}
-                  </span>
-                  <h3 className="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">
+                  </span> */}
+                  <h3 className="text-3xl md:text-5xl font-bold text-[#FF5F00] mb-2 leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-gray-300 text-sm md:text-lg max-w-lg line-clamp-2 mb-6">
+                  <p className="text-gray-900 text-sm md:text-lg max-w-lg line-clamp-1 sm:line-clamp-2 mb-6">
                     {project.subtitle}
                   </p>
 
-                  <button className="flex items-center gap-3 text-white font-bold group w-fit">
+                  {/* <button className="flex items-center gap-3 text-white font-bold group w-fit">
                     <span className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:bg-[#FF5F00] transition-colors">
                       <ArrowUpRight className="w-5 h-5" />
                     </span>
                     <span>View Project</span>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </motion.div>

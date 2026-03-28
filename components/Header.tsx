@@ -85,7 +85,7 @@ const handleSmoothScroll = (
     className="rounded-full px-8 font-semibold text-sm cursor-pointer hover:scale-105 transition-transform"
     style={{ backgroundColor: BRAND_COLOR }}
   >
-    SHIP
+    SHIP YOUR AI
   </Button>
 </Link>
 
@@ -131,7 +131,7 @@ const handleSmoothScroll = (
           className="mt-2 rounded-full w-full font-semibold cursor-pointer"
           style={{ backgroundColor: BRAND_COLOR }}
         >
-          SHIP
+          SHIP YOUR AI
         </Button>
       </Link>
     </div>
