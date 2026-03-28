@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+// import { ArrowUpRight } from "lucide-react";
 
 const BRAND_COLOR = "#FF5F00";
 
@@ -20,22 +20,24 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    id: 1,
-    category: "CONTENT PLATFORM",
-    title: "Inknaija",
-    subtitle: "Nigeria’s home for stories and ideas",
-    description: "Shipped a production-ready AI SaaS platform enabling users to generate presentations, graphics, and documents from text prompts.",
-    role: "Frontend Developer",
-    skills: ["Next.js", "Django", "AI Integration"],
-    image: "/assets/portfolio/inknaija.png",
-    link: "https://inknaija.com",
+
+   {
+    id: 5,
+    category: "YOUR BUSINESS ANALYST",
+    title: "BlackGrid",
+    subtitle: "AI Business Analyst and Financial Insights for SMBs",
+    description: "Developed a SaaS platform with AI-powered business analysis and financial insights.",
+    role: "Full-Stack Developer",
+    skills: ["Next.js", "AI", "Stripe", "Plaid", "Quick Book"],
+    image: "/assets/portfolio/blackgrid.png",
+    link: "http://getblackgrid.com/",
   },
+ 
   {
     id: 2,
-    category: "SaaS WEB DEVELOPMENT",
-    title: "Advance Drivers Safety",
-    subtitle: "Safety training & insights site",
+    category: "AI SaaS PLATFORM",
+    title: "Advance Drivers Safety ",
+    subtitle: "AI to train drivers for safety and reduce road accidents",
     description: "Road-safety platform turning compliance into measurable risk reduction with training and incident tracking.",
     role: "Lead Frontend Developer",
     skills: ["React", "Next.js", "Vercel"],
@@ -44,9 +46,9 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    category: "E-COMMERCE WEBSITE",
-    title: "Cre360 AI",
-    subtitle: "Real estate lead capture.",
+    category: "REAL ESTATE Insights",
+    title: "CRE360 AI",
+    subtitle: "AI Assistance to make better real estate decisions",
     description: "Engineered a high-performance e-commerce platform with responsive product catalogs and dynamic filtering.",
     role: "Full-Stack Developer",
     skills: ["GenAI", "LLMs", "Stripe"],
@@ -55,7 +57,7 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    category: "E-COMMERCE PLATFORM",
+    category: "FINTECH SOLUTION",
     title: "RevvAuto",
     subtitle: "Auto Savings Account for drivers",
     description: "Developed a modern e-commerce platform with AI-powered recommendations and advanced search.",
@@ -64,6 +66,18 @@ const projects: Project[] = [
     image: "/assets/portfolio/revv.png",
     link: "https://revvautos.com",
   },
+   {
+    id: 1,
+    category: "AI CONTENT PLATFORM",
+    title: "Inknaija",
+    subtitle: "Nigeria’s home for stories and ideas",
+    description: "Shipped a production-ready AI SaaS platform enabling users to generate presentations, graphics, and documents from text prompts.",
+    role: "Frontend Developer",
+    skills: ["Next.js", "Django", "AI Integration"],
+    image: "/assets/portfolio/inknaija.png",
+    link: "https://inknaija.com",
+  },
+ 
   // {
   //   id: 5,
   //   category: "TRAVEL & TOURISM",
@@ -134,9 +148,9 @@ export default function Portfolio() {
             MVPs built with{" "}
             <span style={{ color: BRAND_COLOR, fontStyle: "italic" }}>SPEED</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 font-semibold">
-            Sneak peek of some client projects (more coming soon!)
-          </p>
+            {/* <p className="mt-4 text-lg text-gray-600 font-semibold">
+              Sneak peek of some client projects (more coming soon!)
+            </p> */}
         </div>
 
         {/* Expanding Flex Grid (Horizontal Accordion) */}
@@ -163,40 +177,40 @@ export default function Portfolio() {
                 />
 
                 {/* Overlay Gradient - Stronger on non-active to dim them */}
-                <div className={`absolute inset-0 bg-black transition-opacity duration-300 ${activeId === project.id ? 'opacity-10' : 'opacity-30 hover:opacity-10'}`} />
+                <div className={`absolute inset-0 bg-black transition-opacity duration-300 ${activeId === project.id ? 'opacity-0' : 'opacity-5 hover:opacity-10'}`} />
 
                 {/* Vertical Text for Inactive State (Desktop Only) */}
                 {activeId !== project.id && (
                   <div className="absolute inset-0 hidden md:flex items-center justify-center">
-                    <h3 className="text-white text-2xl font-bold tracking-widest uppercase -rotate-90 whitespace-nowrap opacity-100 drop-shadow-md">
-                      {project.category.split(" ")[0]}
-                    </h3>
+                    {/* <h3 className="text-[#FF5F00] text-2xl font-bold tracking-widest uppercase -rotate-90 whitespace-nowrap opacity-100 drop-shadow-md">
+                      {project.category}
+                    </h3> */}
                   </div>
                 )}
               </div>
 
               {/* Active Content Overlay */}
               <div
-                className={`absolute inset-0 p-8 flex flex-col justify-end bg-linear-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 ${activeId === project.id ? "opacity-100" : "opacity-0"
+                className={`absolute bottom-0 left-0 right-0 p-4 md:p-8 flex flex-col justify-end  transition-opacity duration-300 ${activeId === project.id ? "opacity-100" : "opacity-0"
                   }`}
               >
                 <div className="transform translate-y-0 transition-transform duration-500 delay-100">
-                  <span className="inline-block px-3 py-1 bg-[#FF5F00] text-white text-xs font-bold rounded-full mb-3 shadow-lg">
+                  {/* <span className="inline-block px-3 py-1 bg-[#FF5F00] text-white text-xs font-bold rounded-full mb-3 shadow-lg">
                     {project.category}
-                  </span>
-                  <h3 className="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">
+                  </span> */}
+                  <h3 className="text-3xl md:text-5xl font-bold text-[#FF5F00] mb-2 leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-gray-300 text-sm md:text-lg max-w-lg line-clamp-2 mb-6">
+                  <p className="text-gray-900 text-sm md:text-lg max-w-lg line-clamp-1 sm:line-clamp-2 mb-6">
                     {project.subtitle}
                   </p>
 
-                  <button className="flex items-center gap-3 text-white font-bold group w-fit">
+                  {/* <button className="flex items-center gap-3 text-white font-bold group w-fit">
                     <span className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:bg-[#FF5F00] transition-colors">
                       <ArrowUpRight className="w-5 h-5" />
                     </span>
                     <span>View Project</span>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </motion.div>

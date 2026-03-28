@@ -35,7 +35,7 @@ export default function ContactSection() {
     email: "",
     company: "",
     projectType: "",
-    message: "",
+    projectDescription: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -73,7 +73,7 @@ export default function ContactSection() {
           email: "",
           company: "",
           projectType: "",
-          message: "",
+          projectDescription: "",
         });
       } else {
         const error = await response.json();
@@ -188,8 +188,8 @@ export default function ContactSection() {
                 <Textarea
                   rows={5}
                   placeholder="Tell us about your project..."
-                  name="message"
-                  value={formData.message}
+                  name="projectDescription"
+                  value={formData.projectDescription}
                   onChange={handleChange}
                 />
 
