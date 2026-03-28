@@ -20,22 +20,24 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    id: 1,
-    category: "CONTENT PLATFORM",
-    title: "Inknaija",
-    subtitle: "Nigeria’s home for stories and ideas",
-    description: "Shipped a production-ready AI SaaS platform enabling users to generate presentations, graphics, and documents from text prompts.",
-    role: "Frontend Developer",
-    skills: ["Next.js", "Django", "AI Integration"],
-    image: "/assets/portfolio/inknaija.png",
-    link: "https://inknaija.com",
+
+   {
+    id: 5,
+    category: "YOUR BUSINESS ANALYST",
+    title: "BlackGrid",
+    subtitle: "AI Business Analyst and Financial Insights for SMBs",
+    description: "Developed a SaaS platform with AI-powered business analysis and financial insights.",
+    role: "Full-Stack Developer",
+    skills: ["Next.js", "AI", "Stripe", "Plaid", "Quick Book"],
+    image: "/assets/portfolio/blackgrid.png",
+    link: "http://getblackgrid.com/",
   },
+ 
   {
     id: 2,
-    category: "SaaS WEB DEVELOPMENT",
-    title: "Advance Drivers Safety",
-    subtitle: "Safety training & insights site",
+    category: "AI SaaS PLATFORM",
+    title: "Advance Drivers Safety ",
+    subtitle: "AI to train drivers for safety and reduce road accidents",
     description: "Road-safety platform turning compliance into measurable risk reduction with training and incident tracking.",
     role: "Lead Frontend Developer",
     skills: ["React", "Next.js", "Vercel"],
@@ -44,9 +46,9 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    category: "E-COMMERCE WEBSITE",
-    title: "Cre360 AI",
-    subtitle: "Real estate lead capture.",
+    category: "REAL ESTATE Insights",
+    title: "CRE360 AI",
+    subtitle: "AI Assistance to make better real estate decisions",
     description: "Engineered a high-performance e-commerce platform with responsive product catalogs and dynamic filtering.",
     role: "Full-Stack Developer",
     skills: ["GenAI", "LLMs", "Stripe"],
@@ -55,7 +57,7 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    category: "E-COMMERCE PLATFORM",
+    category: "FINTECH SOLUTION",
     title: "RevvAuto",
     subtitle: "Auto Savings Account for drivers",
     description: "Developed a modern e-commerce platform with AI-powered recommendations and advanced search.",
@@ -64,17 +66,18 @@ const projects: Project[] = [
     image: "/assets/portfolio/revv.png",
     link: "https://revvautos.com",
   },
-  {
-    id: 5,
-    category: "SaaS PLATFORM",
-    title: "BlackGrid",
-    subtitle: "SaaS Platform for AI-powered business analysis and financial insights.",
-    description: "Developed a SaaS platform with AI-powered business analysis and financial insights.",
-    role: "Full-Stack Developer",
-    skills: ["Next.js", "AI", "Stripe", "Plaid", "Quick Book"],
-    image: "/assets/portfolio/blackgrid.png",
-    link: "http://getblackgrid.com/",
+   {
+    id: 1,
+    category: "AI CONTENT PLATFORM",
+    title: "Inknaija",
+    subtitle: "Nigeria’s home for stories and ideas",
+    description: "Shipped a production-ready AI SaaS platform enabling users to generate presentations, graphics, and documents from text prompts.",
+    role: "Frontend Developer",
+    skills: ["Next.js", "Django", "AI Integration"],
+    image: "/assets/portfolio/inknaija.png",
+    link: "https://inknaija.com",
   },
+ 
   // {
   //   id: 5,
   //   category: "TRAVEL & TOURISM",
@@ -145,9 +148,9 @@ export default function Portfolio() {
             MVPs built with{" "}
             <span style={{ color: BRAND_COLOR, fontStyle: "italic" }}>SPEED</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 font-semibold">
-            Sneak peek of some client projects (more coming soon!)
-          </p>
+            {/* <p className="mt-4 text-lg text-gray-600 font-semibold">
+              Sneak peek of some client projects (more coming soon!)
+            </p> */}
         </div>
 
         {/* Expanding Flex Grid (Horizontal Accordion) */}
@@ -179,9 +182,9 @@ export default function Portfolio() {
                 {/* Vertical Text for Inactive State (Desktop Only) */}
                 {activeId !== project.id && (
                   <div className="absolute inset-0 hidden md:flex items-center justify-center">
-                    <h3 className="text-[#FF5F00] text-2xl font-bold tracking-widest uppercase -rotate-90 whitespace-nowrap opacity-100 drop-shadow-md">
-                      {project.category.split(" ")[0]}
-                    </h3>
+                    {/* <h3 className="text-[#FF5F00] text-2xl font-bold tracking-widest uppercase -rotate-90 whitespace-nowrap opacity-100 drop-shadow-md">
+                      {project.category}
+                    </h3> */}
                   </div>
                 )}
               </div>
