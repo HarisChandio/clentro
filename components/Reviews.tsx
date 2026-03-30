@@ -182,7 +182,7 @@ export default function Testimonials() {
 
   return (
     <section className="py-16 md:py-24 bg-gray-50">
-      <div className="container mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-12 text-center max-w-3xl mx-auto">
           <motion.h2
@@ -207,7 +207,7 @@ export default function Testimonials() {
         </div>
 
         {/* Desktop layout */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8 lg:gap-4 max-w-6xl mx-auto h-[500px] overflow-hidden scroll-smooth">
+        <div className="hidden lg:grid lg:grid-cols-3 gap-8 lg:gap-4 max-w-7xl mx-auto h-[500px] overflow-hidden scroll-smooth">
           {/* Column 1 */}
           <div
             ref={(el) => {
@@ -282,7 +282,7 @@ export default function Testimonials() {
         </div>
 
         {/* Tablet and Mobile layout */}
-        <div className="lg:hidden grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4 max-w-6xl mx-auto">
+        <div className="lg:hidden grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4">
           {/* Left Column Group */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-7">
             {/* First Sub-column (Stacked) */}

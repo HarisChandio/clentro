@@ -43,10 +43,10 @@ export default function HeroSection() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 container mx-auto px-0 md:px-6 py-8 md:py-16 min-h-screen flex items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-0 md:px-6 py-8 md:py-16 min-h-screen flex items-center">
         <div className="max-w-3xl w-full">
           {/* Content */}
-          <div className="space-y-6 md:space-y-8 p-6 md:p-12 rounded-2xl backdrop-blur-sm text-center md:text-left">
+          <div className="space-y-6 md:space-y-8 p-6 md:pl-0 md:pr-12 rounded-2xl backdrop-blur-sm text-center md:text-left">
             {/* Badge */}
             <div className="inline-block">
               <span
@@ -71,7 +71,7 @@ export default function HeroSection() {
             </hgroup>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-gray-600 max-w-lg leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 max-w-lg mx-auto md:mx-0 leading-relaxed">
               Have an idea or a vibe-coded product you want live—fast? We’re
               engineers equipped with the best AI tools, turning early concepts
               into production-ready software for SaaS and AI startups.
@@ -79,7 +79,7 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <nav
-              className="flex flex-col sm:flex-row gap-3 md:gap-4"
+              className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 md:gap-4"
               aria-label="Primary actions"
             >
               <Button
@@ -116,9 +116,9 @@ export default function HeroSection() {
               </Button>
             </nav>
 
-            {/* Tablet + Desktop Stats */}
+            {/* Desktop Stats */}
             <div
-              className="hidden sm:grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-6 md:pt-8 text-center"
+              className="hidden md:grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-6 md:pt-8 text-center"
               role="region"
               aria-label="Company statistics"
             >
@@ -167,9 +167,9 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Mobile Stats */}
+            {/* Tablet + Mobile Stats */}
             <div
-              className="sm:hidden flex flex-col justify-center items-center gap-6 w-full"
+              className="md:hidden flex flex-col justify-center items-center gap-6 w-full mt-10"
               role="region"
               aria-label="Company statistics"
             >
@@ -177,7 +177,7 @@ export default function HeroSection() {
                 {/* Stat 1 */}
                 <div className="flex flex-col justify-center items-center w-[50%]">
                   <div
-                    className="text-4xl md:text-5xl font-extrabold leading-none"
+                    className="text-4xl sm:text-5xl font-extrabold leading-none"
                     style={{ color: BRAND_COLOR }}
                     aria-label="5 plus products delivered in less than 100 days"
                   >
@@ -192,7 +192,7 @@ export default function HeroSection() {
                 {/* Stat 2 */}
                 <div className="flex flex-col items-center w-[50%]">
                   <div
-                    className="text-4xl md:text-5xl font-extrabold leading-none"
+                    className="text-4xl sm:text-5xl font-extrabold leading-none"
                     style={{ color: BRAND_COLOR }}
                     aria-label="45 days average delivery time"
                   >
@@ -208,7 +208,7 @@ export default function HeroSection() {
               {/* Stat 3 */}
               <div className="flex flex-col items-center">
                 <div
-                  className="text-4xl md:text-5xl font-extrabold leading-none"
+                  className="text-4xl sm:text-5xl font-extrabold leading-none"
                   style={{ color: BRAND_COLOR }}
                   aria-label="100 percent client satisfaction rate"
                 >

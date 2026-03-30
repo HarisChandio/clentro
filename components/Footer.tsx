@@ -26,25 +26,17 @@ export default function Footer() {
           <div>
             <h4 className=" font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#" className="hover:text-[#FF5F00] transition-colors">
+              <li className="hover:text-[#FF5F00] transition-colors cursor-default">
                   SaaS Product Development
-                </a>
               </li>
-              <li>
-                <a href="#" className="hover:text-[#FF5F00] transition-colors">
+              <li className="hover:text-[#FF5F00] transition-colors cursor-default">
                   Full-Stack Engineering
-                </a>
               </li>
-              <li>
-                <a href="#" className="hover:text-[#FF5F00] transition-colors">
+              <li className="hover:text-[#FF5F00] transition-colors cursor-default">
                   AI & Automation
-                </a>
               </li>
-              <li>
-                <a href="#" className="hover:text-[#FF5F00] transition-colors">
+              <li className="hover:text-[#FF5F00] transition-colors cursor-default">
                   Mobile Applications
-                </a>
               </li>
             </ul>
           </div>
@@ -118,7 +110,8 @@ export default function Footer() {
             <div className="flex gap-4 mt-6">
               <a
                 href="https://www.linkedin.com/company/clentro/"
-                className="hover:text-gray-700 transition"
+                className="hover:text-[#FF5F00] transition"
+                target="_blank"
               >
                 <Linkedin size={18} />
               </a>

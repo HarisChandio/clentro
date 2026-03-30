@@ -130,7 +130,7 @@ export default function ShipFastMethodology() {
   };
 
   return (
-    <section className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
       {/* Phases */}
       <div className="mb-12 sm:mb-16">
         <motion.div

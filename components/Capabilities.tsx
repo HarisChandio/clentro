@@ -156,7 +156,7 @@ export default function Capabilities() {
         },
       }}
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-6 lg:mb-14"
           variants={{

@@ -75,7 +75,7 @@ export default function BlogSection() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-5xl text-center max-w-xl mb-16 mx-auto font-extrabold text-gray-900">
           Practical reads to help you move{" "}
           <span

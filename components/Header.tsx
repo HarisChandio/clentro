@@ -61,7 +61,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8">
             {["capabilities", "process", "work", "blogs", "about"].map(
               (item) => (
                 <a
@@ -80,7 +80,7 @@ export default function Header() {
           <Link
             href="/#contact"
             onClick={(e) => handleSmoothScroll(e, "contact")}
-            className="hidden md:block"
+            className="hidden lg:block"
           >
             <Button
               className="rounded-full px-8 font-semibold text-sm cursor-pointer hover:scale-105 transition-transform"
@@ -93,7 +93,7 @@ export default function Header() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-gray-900"
+            className="lg:hidden text-gray-900"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -103,7 +103,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-black/5 shadow-lg">
+        <div className="lg:hidden bg-white border-t border-black/5 shadow-lg">
           <div className="flex flex-col px-6 py-6 space-y-5">
             {[
               "capabilities",
