@@ -155,7 +155,7 @@ export default function Portfolio() {
 
               {/* Active Content Overlay */}
               <div
-                className={`absolute bottom-0 left-0 right-0 p-4 md:p-8 flex flex-col justify-end  transition-opacity duration-300 opacity-100`}
+                className={`absolute bottom-0 left-0 right-0 p-4 md:p-8 flex flex-col justify-end  transition-opacity duration-300 opacity-100 bg-linear-to-t from-transparent via-white to-black/0 backdrop-blur-[1px]`}
               >
                 <div className="transform translate-y-0 transition-transform duration-500 delay-100">
                   <h3 className="text-3xl font-bold text-[#FF5F00] mb-2 leading-tight">
