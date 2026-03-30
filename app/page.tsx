@@ -4,6 +4,7 @@ import Capabilities from "@/components/Capabilities";
 import ContactSection from "@/components/ContactForm";
 import HeroSection from "@/components/HeroSection";
 import Portfolio from "@/components/Portfolio";
+import RecentProjects from "@/components/RecentProjects";
 import ShipFastMethodology from "@/components/ShipFastMethodology";
 import Testimonials from "@/components/Reviews";
 
@@ -19,7 +20,8 @@ export default function Home() {
       <HeroSection />
 
       <div id="work">
-        <Portfolio />
+        {/* <Portfolio /> */}
+        <RecentProjects/>
       </div>
 
       <Testimonials />
@@ -38,6 +40,7 @@ export default function Home() {
 
       <div id="contact">
         <ContactSection />
+        
       </div>
       {/* Floating Email Button */}
       <a
