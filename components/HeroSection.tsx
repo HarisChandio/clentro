@@ -46,7 +46,7 @@ export default function HeroSection() {
       <div className="relative z-10 container mx-auto px-0 md:px-6 py-8 md:py-16 min-h-screen flex items-center">
         <div className="max-w-3xl w-full">
           {/* Content */}
-            <div className="space-y-6 md:space-y-8 p-6 md:p-12 rounded-2xl backdrop-blur-sm text-center md:text-left">
+          <div className="space-y-6 md:space-y-8 p-6 md:p-12 rounded-2xl backdrop-blur-sm text-center md:text-left">
             {/* Badge */}
             <div className="inline-block">
               <span
@@ -116,16 +116,16 @@ export default function HeroSection() {
               </Button>
             </nav>
 
-            {/* Stats */}
+            {/* Tablet + Desktop Stats */}
             <div
-              className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-6 md:pt-8 text-center"
+              className="hidden sm:grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-6 md:pt-8 text-center"
               role="region"
               aria-label="Company statistics"
             >
               {/* Stat 1 */}
               <div className="flex flex-col items-center">
                 <div
-                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
+                  className="text-4xl md:text-5xl font-extrabold leading-none"
                   style={{ color: BRAND_COLOR }}
                   aria-label="5 plus products delivered in less than 100 days"
                 >
@@ -140,7 +140,7 @@ export default function HeroSection() {
               {/* Stat 2 */}
               <div className="flex flex-col items-center">
                 <div
-                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
+                  className="text-4xl md:text-5xl font-extrabold leading-none"
                   style={{ color: BRAND_COLOR }}
                   aria-label="45 days average delivery time"
                 >
@@ -155,7 +155,60 @@ export default function HeroSection() {
               {/* Stat 3 */}
               <div className="flex flex-col items-center">
                 <div
-                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none"
+                  className="text-4xl md:text-5xl font-extrabold leading-none"
+                  style={{ color: BRAND_COLOR }}
+                  aria-label="100 percent client satisfaction rate"
+                >
+                  <CountUp end={100} suffix="%" />
+                </div>
+                <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
+                  Client Satisfaction
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Stats */}
+            <div
+              className="sm:hidden flex flex-col justify-center items-center gap-6 w-full"
+              role="region"
+              aria-label="Company statistics"
+            >
+              <div className="flex flex-row justify-between items-center gap-6 w-full">
+                {/* Stat 1 */}
+                <div className="flex flex-col justify-center items-center w-[50%]">
+                  <div
+                    className="text-4xl md:text-5xl font-extrabold leading-none"
+                    style={{ color: BRAND_COLOR }}
+                    aria-label="5 plus products delivered in less than 100 days"
+                  >
+                    <CountUp end={5} suffix="+" />
+                  </div>
+
+                  <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
+                    Products in &lt; 100 Days
+                  </div>
+                </div>
+
+                {/* Stat 2 */}
+                <div className="flex flex-col items-center w-[50%]">
+                  <div
+                    className="text-4xl md:text-5xl font-extrabold leading-none"
+                    style={{ color: BRAND_COLOR }}
+                    aria-label="45 days average delivery time"
+                  >
+                    <CountUp end={45} suffix="D" />
+                  </div>
+
+                  <div className="mt-1 text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wider">
+                    Avg. Delivery
+                  </div>
+                </div>
+              </div>
+
+              {/* Stat 3 */}
+              <div className="flex flex-col items-center">
+                <div
+                  className="text-4xl md:text-5xl font-extrabold leading-none"
                   style={{ color: BRAND_COLOR }}
                   aria-label="100 percent client satisfaction rate"
                 >

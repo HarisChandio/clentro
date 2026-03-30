@@ -93,7 +93,7 @@ function ReadMoreToggle({
       <button
         type="button"
         onClick={() => setExpanded((v) => !v)}
-        className={`mt-2 self-start text-xs font-semibold text-[#FF5F00] hover:underline ${buttonClassName}`}
+        className={`mt-2 self-start text-xs font-semibold text-[#FF5F00] hover:underline w-full text-right ${buttonClassName}`}
       >
         {expanded ? "Read less" : "Read more"}
       </button>

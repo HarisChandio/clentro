@@ -114,7 +114,7 @@ export default function Testimonials() {
             768: { slidesPerView: 2 }, // Tablets: 2 cards
             1024: { slidesPerView: 3 }, // Desktop: 3 cards
           }}
-          className="!pb-4"
+          className="pb-4!"
         >
           {testimonials.map((testimonial) => {
             const isExpanded = expandedCards.has(testimonial.id);
@@ -146,14 +146,14 @@ export default function Testimonials() {
                   </div>
 
                   {/* Testimonial Content */}
-                  <div className="flex-grow mb-4">
+                  <div className="grow mb-4">
                     <p className="text-gray-700 leading-relaxed">
                       "{displayContent}"
                     </p>
                     {isLong && (
                       <button
                         onClick={() => toggleExpand(testimonial.id)}
-                        className="mt-2 text-sm font-medium hover:underline transition-colors"
+                        className="mt-2 text-sm font-medium hover:underline transition-colors w-full text-center"
                         style={{ color: BRAND_COLOR }}
                       >
                         {isExpanded ? "Read less" : "Read more"}

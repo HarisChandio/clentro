@@ -34,7 +34,6 @@ export default function PortfolioModal({
       <DialogContent
         showCloseButton={false}
         className="
-          !max-w-none
           w-[95vw]
           md:w-[75vw]
           max-w-7xl
@@ -61,7 +60,7 @@ export default function PortfolioModal({
           />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:bg-gradient-to-r md:from-transparent md:to-black/10" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent md:bg-linear-to-r md:from-transparent md:to-black/10" />
 
           {/* Mobile Close */}
           <DialogClose className="absolute top-4 right-4 md:hidden p-2 bg-black/40 text-white rounded-full">
