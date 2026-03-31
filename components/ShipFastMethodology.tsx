@@ -130,7 +130,7 @@ export default function ShipFastMethodology() {
   };
 
   return (
-    <section className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
       {/* Phases */}
       <div className="mb-12 sm:mb-16">
         <motion.div
@@ -164,7 +164,7 @@ export default function ShipFastMethodology() {
             </p>
           </motion.div>
 
-          <div className="flex gap-4 justify-center md:hidden mb-6">
+          {/* <div className="flex gap-4 justify-center md:hidden mb-6">
             <button
               onClick={handlePrev}
               disabled={isPrevDisabled}
@@ -213,7 +213,7 @@ export default function ShipFastMethodology() {
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
-          </div>
+          </div> */}
 
           {phases.map((phase, index) => (
             <motion.div
@@ -273,14 +273,12 @@ export default function ShipFastMethodology() {
             </motion.div>
           ))}
 
-          <div className="block md:hidden w-full col-span-2">
+          <div className="block md:hidden w-full col-span-2 relative pb-10">
             <Swiper
               modules={[Pagination]}
               pagination={{
                 clickable: true,
-                el: ".custom-pagination",
-                bulletClass: "custom-bullet",
-                bulletActiveClass: "custom-bullet-active",
+                el: ".shipfast-pagination",
               }}
               spaceBetween={24}
               onSwiper={(swiper) => {
@@ -302,7 +300,7 @@ export default function ShipFastMethodology() {
                   <motion.div
                     key={index}
                     variants={fadeUp}
-                    className="bg-white border-2 border-gray-200 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 hover:border-gray-300 transition-all relative overflow-hidden"
+                    className="bg-white border-2 border-gray-200 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 hover:border-gray-300 transition-all relative overflow-hidden h-96"
                   >
                     <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                       <span
@@ -357,9 +355,44 @@ export default function ShipFastMethodology() {
                 </SwiperSlide>
               ))}
             </Swiper>
+
+            {/* Swiper will render pagination bullets into this element */}
+            <div className="shipfast-pagination w-full flex justify-center items-center pt-10" />
           </div>
         </motion.div>
       </div>
+
+      {/* Mobile Metrics - triangle layout */}
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-2 gap-x-10 gap-y-8 max-w-md mx-auto md:hidden"
+      >
+        {metrics.map((metric, index) => (
+          <motion.div
+            key={index}
+            variants={fadeUp}
+            className={`text-center ${
+              index === 2 ? "col-span-2 flex flex-col items-center" : ""
+            }`}
+          >
+            <div
+              className="text-4xl sm:text-5xl font-black mb-1"
+              style={{ color: BRAND_COLOR }}
+            >
+              {metric.value}
+            </div>
+            <div className="text-sm sm:text-base font-bold text-gray-900 mb-1 uppercase tracking-wide">
+              {metric.label}
+            </div>
+            <p className="text-xs sm:text-sm text-gray-500">
+              {metric.description}
+            </p>
+          </motion.div>
+        ))}
+      </motion.div>
 
       {/* Desktop Metrics */}
       <motion.div
@@ -367,7 +400,7 @@ export default function ShipFastMethodology() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
+        className="hidden md:grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
       >
         {metrics.map((metric, index) => (
           <motion.div key={index} variants={fadeUp} className="text-center">
