@@ -110,32 +110,34 @@ export default function Testimonials() {
   const column1Sequence = (
     <>
       <FeaturedTestimonialCard item={testimonials[0]} className="h-full mt-6" />
-      <TestimonialCardVariant2 item={testimonials[1]} />
+      {/* <TestimonialCardVariant2 item={testimonials[1]} /> */}
       <TestimonialCardVariant3 item={testimonials[2]} className="h-full mt-10" />
       <TestimonialCardVariant5 item={testimonials[4]} />
-      <TestimonialCardVariant4 item={testimonials[3]} />
+      {/* <TestimonialCardVariant4 item={testimonials[3]} /> */}
     </>
   );
 
   const column2Sequence = (
     <>
-      <TestimonialCardVariant3 item={testimonials[2]} className="h-full mt-10" />
-      <FeaturedTestimonialCard item={testimonials[0]} className="h-full mt-5" />
+      {/* <TestimonialCardVariant3 item={testimonials[2]} className="h-full mt-10" /> */}
       <TestimonialCardVariant4 item={testimonials[3]} />
+      {/* <FeaturedTestimonialCard item={testimonials[0]} className="h-full mt-5" /> */}
       <TestimonialCardVariant2 item={testimonials[1]} />
-      <TestimonialCardVariant5 item={testimonials[4]} />
+      {/* <TestimonialCardVariant5 item={testimonials[4]} /> */}
+      {/* Extra spacer to ensure content is taller than container for smooth auto-scroll */}
+      <div className="h-10 lg:h-24" aria-hidden="true" />
     </>
   );
 
-  const column3Sequence = (
-    <>
-      <TestimonialCardVariant5 item={testimonials[4]} />
-      <FeaturedTestimonialCard item={testimonials[0]} className="h-full mt-5" />
-      <TestimonialCardVariant2 item={testimonials[1]} />
-      <TestimonialCardVariant3 item={testimonials[2]} className="h-full mt-10" />
-      <TestimonialCardVariant4 item={testimonials[3]} />
-    </>
-  );
+  // const column3Sequence = (
+  //   <>
+  //     {/* <TestimonialCardVariant5 item={testimonials[4]} /> */}
+  //     {/* <FeaturedTestimonialCard item={testimonials[0]} className="h-full mt-5" /> */}
+  //     {/* <TestimonialCardVariant2 item={testimonials[1]} /> */}
+  //     <TestimonialCardVariant3 item={testimonials[2]} className="h-full mt-10" />
+  //     {/* <TestimonialCardVariant4 item={testimonials[3]} /> */}
+  //   </>
+  // );
 
   useEffect(() => {
     const reduceMotion = window.matchMedia(
@@ -159,17 +161,17 @@ export default function Testimonials() {
 
       columnRefs.current.forEach((el, idx) => {
         if (!el) return;
+
         const maxScrollTop = el.scrollHeight - el.clientHeight;
         if (maxScrollTop <= 0) return;
 
-        const loopHeight = el.scrollHeight / 2;
-        if (loopHeight <= 0) return;
-
         let next = el.scrollTop + dt * speedsPxPerMs[idx]!;
-        // Reset at the halfway point where the content is identical.
-        // This avoids the "snap back to top" effect.
-        while (next >= loopHeight) next -= loopHeight;
-        while (next < 0) next += loopHeight;
+
+        // Wrap before we hit the natural max so scrolling never "sticks"
+        if (next > maxScrollTop) {
+          next -= maxScrollTop;
+        }
+
         el.scrollTop = next;
       });
 
@@ -207,7 +209,7 @@ export default function Testimonials() {
         </div>
 
         {/* Desktop layout */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8 lg:gap-4 max-w-7xl mx-auto h-[500px] overflow-hidden scroll-smooth">
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8 lg:gap-4 max-w-7xl mx-auto h-[400px] overflow-hidden scroll-smooth">
           {/* Column 1 */}
           <div
             ref={(el) => {
@@ -257,7 +259,7 @@ export default function Testimonials() {
           </div>
 
           {/* Column 3 */}
-          <div
+          {/* <div
             ref={(el) => {
               columnRefs.current[2] = el;
             }}
@@ -278,7 +280,7 @@ export default function Testimonials() {
           >
             {column3Sequence}
             {column3Sequence}
-          </div>
+          </div> */}
         </div>
 
         {/* Tablet and Mobile layout */}
@@ -287,14 +289,8 @@ export default function Testimonials() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-7">
             {/* First Sub-column (Stacked) */}
             <div className="flex flex-col gap-4">
-              <FeaturedTestimonialCard
-                item={testimonials[0]}
-                enableReadMore
-              />
-              <TestimonialCardVariant2
-                item={testimonials[1]}
-                enableReadMore
-              />
+              <FeaturedTestimonialCard item={testimonials[0]} />
+              <TestimonialCardVariant2 item={testimonials[1]} />
             </div>
 
             {/* Second Sub-column (Tall/Single) */}
@@ -302,21 +298,14 @@ export default function Testimonials() {
               <TestimonialCardVariant3
                 item={testimonials[2]}
                 className="h-full"
-                enableReadMore
               />
             </div>
           </div>
 
           {/* Right Column Group (Stacked) */}
           <div className="flex flex-col gap-4">
-            <TestimonialCardVariant4
-              item={testimonials[3]}
-              enableReadMore
-            />
-            <TestimonialCardVariant5
-              item={testimonials[4]}
-              enableReadMore
-            />
+            <TestimonialCardVariant4 item={testimonials[3]} />
+            <TestimonialCardVariant5 item={testimonials[4]} />
           </div>
         </div>
       </div>
@@ -327,11 +316,9 @@ export default function Testimonials() {
 function FeaturedTestimonialCard({
   item,
   className = "",
-  enableReadMore = false,
 }: {
   item: any;
   className?: string;
-  enableReadMore?: boolean;
 }) {
   const displayText = item.text;
 
@@ -351,19 +338,9 @@ function FeaturedTestimonialCard({
           <Quote className="w-10 h-10 text-[#38393b] -top-10 -left-4 absolute fill-current mb-2" />
 
           {/* Text */}
-          {enableReadMore ? (
-            <ReadMoreToggle
-              text={displayText}
-              maxChars={150}
-              includeQuotes
-              wrapperClassName="mb-6 min-h-0"
-              textClassName="text-[#475569] text-xs leading-tight"
-            />
-          ) : (
-            <p className="text-[#475569] text-xs leading-tight mb-6 min-h-0">
-              &quot;{displayText}&quot;
-            </p>
-          )}
+          <p className="text-[#475569] text-xs leading-tight mb-6 min-h-0">
+            &quot;{displayText}&quot;
+          </p>
 
           <h4 className="font-bold text-[#0f172a] text-sm mb-1">{item.name}</h4>
 
@@ -390,10 +367,8 @@ function FeaturedTestimonialCard({
 
 function TestimonialCardVariant2({
   item,
-  enableReadMore = false,
 }: {
   item: any;
-  enableReadMore?: boolean;
 }) {
   const displayText = item.text;
 
@@ -410,19 +385,9 @@ function TestimonialCardVariant2({
       transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
       className="bg-white p-6 rounded-3xl shadow-sm flex flex-col justify-between h-full"
     >
-      {enableReadMore ? (
-        <ReadMoreToggle
-          text={displayText}
-          maxChars={160}
-          includeQuotes
-          wrapperClassName="mb-6 font-medium min-h-0"
-          textClassName="text-gray-600 text-sm leading-relaxed"
-        />
-      ) : (
-        <p className="text-gray-600 text-sm leading-relaxed mb-6 font-medium min-h-0">
-          &quot;{displayText}&quot;
-        </p>
-      )}
+      <p className="text-gray-600 text-sm leading-relaxed mb-6 font-medium min-h-0">
+        &quot;{displayText}&quot;
+      </p>
 
       <div className="flex items-center justify-between">
         <div>
@@ -449,11 +414,9 @@ function TestimonialCardVariant2({
 function TestimonialCardVariant3({
   item,
   className = "",
-  enableReadMore = false,
 }: {
   item: any;
   className?: string;
-  enableReadMore?: boolean;
 }) {
   const displayText = item.text;
 
@@ -497,18 +460,9 @@ function TestimonialCardVariant3({
       </h3>
 
       {/* Text */}
-      {enableReadMore ? (
-        <ReadMoreToggle
-          text={displayText}
-          maxChars={160}
-          wrapperClassName="mb-8 grow min-h-0"
-          textClassName="text-gray-600 text-xs leading-relaxed"
-        />
-      ) : (
-        <div className="text-gray-600 text-xs leading-relaxed mb-8 grow min-h-0">
-          {displayText}
-        </div>
-      )}
+      <div className="text-gray-600 text-xs leading-relaxed mb-8 grow min-h-0">
+        {displayText}
+      </div>
 
       {/* Footer */}
       <div className="self-start text-left w-full relative flex justify-between items-end">
@@ -526,10 +480,8 @@ function TestimonialCardVariant3({
 
 function TestimonialCardVariant4({
   item,
-  enableReadMore = false,
 }: {
   item: any;
-  enableReadMore?: boolean;
 }) {
   const displayText = item.text;
 
@@ -570,18 +522,9 @@ function TestimonialCardVariant4({
         </div>
 
         {/* Main Text */}
-        {enableReadMore ? (
-          <ReadMoreToggle
-            text={displayText}
-            maxChars={160}
-            wrapperClassName="mb-4 min-h-0"
-            textClassName="text-gray-500 text-xs leading-relaxed"
-          />
-        ) : (
-          <p className="text-gray-500 text-xs leading-relaxed mb-4 min-h-0">
-            {displayText}
-          </p>
-        )}
+        <p className="text-gray-500 text-xs leading-relaxed mb-4 min-h-0">
+          {displayText}
+        </p>
 
         {/* Footer */}
         <div className="mt-auto">
@@ -595,10 +538,8 @@ function TestimonialCardVariant4({
 
 function TestimonialCardVariant5({
   item,
-  enableReadMore = false,
 }: {
   item: any;
-  enableReadMore?: boolean;
 }) {
   const displayText = item.text;
 
@@ -617,19 +558,9 @@ function TestimonialCardVariant5({
     >
       {/* Left Content */}
       <div className="flex-1">
-        {enableReadMore ? (
-          <ReadMoreToggle
-            text={displayText}
-            maxChars={160}
-            includeQuotes
-            wrapperClassName="mb-4 min-h-0"
-            textClassName="text-gray-600 text-xs leading-relaxed"
-          />
-        ) : (
-          <p className="text-gray-600 text-xs leading-relaxed mb-4 min-h-0">
-            &quot;{displayText}&quot;
-          </p>
-        )}
+        <p className="text-gray-600 text-xs leading-relaxed mb-4 min-h-0">
+          &quot;{displayText}&quot;
+        </p>
 
         {/* Footer */}
         <div>

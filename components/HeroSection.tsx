@@ -18,7 +18,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-screen w-full overflow-hidden"
+      className="relative py-8 h-full md:min-h-screen w-full overflow-hidden"
       aria-label="Hero section"
     >
       {/* Video Background - Hidden on mobile */}

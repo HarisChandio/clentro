@@ -156,7 +156,7 @@ export default function Capabilities() {
         },
       }}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           className="text-center mb-6 lg:mb-14"
           variants={{
@@ -314,7 +314,7 @@ export default function Capabilities() {
             {capabilities.map((cap, i) => (
               <SwiperSlide key={i}>
                 <motion.div
-                  className={`bg-white rounded-xl p-6 md:p-8 border border-orange-200`}
+                  className={`bg-white rounded-xl p-4 md:p-8 border border-orange-200 h-102`}
                   variants={{
                     hidden: { opacity: 0, y: 30 },
                     visible: {

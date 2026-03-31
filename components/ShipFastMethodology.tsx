@@ -300,7 +300,7 @@ export default function ShipFastMethodology() {
                   <motion.div
                     key={index}
                     variants={fadeUp}
-                    className="bg-white border-2 border-gray-200 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 hover:border-gray-300 transition-all relative overflow-hidden"
+                    className="bg-white border-2 border-gray-200 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 hover:border-gray-300 transition-all relative overflow-hidden h-96"
                   >
                     <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                       <span
@@ -362,13 +362,45 @@ export default function ShipFastMethodology() {
         </motion.div>
       </div>
 
+      {/* Mobile Metrics - triangle layout */}
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-2 gap-x-10 gap-y-8 max-w-md mx-auto md:hidden"
+      >
+        {metrics.map((metric, index) => (
+          <motion.div
+            key={index}
+            variants={fadeUp}
+            className={`text-center ${
+              index === 2 ? "col-span-2 flex flex-col items-center" : ""
+            }`}
+          >
+            <div
+              className="text-4xl sm:text-5xl font-black mb-1"
+              style={{ color: BRAND_COLOR }}
+            >
+              {metric.value}
+            </div>
+            <div className="text-sm sm:text-base font-bold text-gray-900 mb-1 uppercase tracking-wide">
+              {metric.label}
+            </div>
+            <p className="text-xs sm:text-sm text-gray-500">
+              {metric.description}
+            </p>
+          </motion.div>
+        ))}
+      </motion.div>
+
       {/* Desktop Metrics */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
+        className="hidden md:grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
       >
         {metrics.map((metric, index) => (
           <motion.div key={index} variants={fadeUp} className="text-center">
