@@ -156,7 +156,7 @@ export default function Capabilities() {
         },
       }}
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-6 lg:mb-14"
           variants={{
@@ -171,12 +171,12 @@ export default function Capabilities() {
             },
           }}
         >
-          <span
+          {/* <span
             className="inline-block text-xs font-semibold px-4 py-1.5 rounded-full mb-4"
             style={{ backgroundColor: BRAND_COLOR, color: "#fff" }}
           >
             What We Do
-          </span>
+          </span> */}
 
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
             Core <span style={{ color: BRAND_COLOR }}>Capabilities</span>
@@ -187,7 +187,7 @@ export default function Capabilities() {
           </p>
         </motion.div>
 
-        <div className="flex gap-4 justify-center lg:hidden mb-6">
+        {/* <div className="flex gap-4 justify-center lg:hidden mb-6">
           <button
             onClick={handlePrev}
             disabled={isPrevDisabled}
@@ -236,7 +236,7 @@ export default function Capabilities() {
               <path d="M9 18l6-6-6-6" />
             </svg>
           </button>
-        </div>
+        </div> */}
 
         {/* Grid */}
         <div className="hidden lg:grid lg:grid-cols-3 gap-4">
@@ -286,14 +286,12 @@ export default function Capabilities() {
         </div>
 
         {/* Swiper - shown below lg */}
-        <div className="lg:hidden">
+        <div className="lg:hidden relative pb-10">
           <Swiper
             modules={[Pagination]}
             pagination={{
               clickable: true,
-              el: ".custom-pagination",
-              bulletClass: "custom-bullet",
-              bulletActiveClass: "custom-bullet-active",
+              el: ".capabilities-pagination",
             }}
             spaceBetween={24}
             onSwiper={(swiper) => {
@@ -361,6 +359,9 @@ export default function Capabilities() {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/* Swiper will render pagination bullets into this element */}
+          <div className="capabilities-pagination w-full flex justify-center items-center pt-10" />
         </div>
       </div>
     </motion.section>

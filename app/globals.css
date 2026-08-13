@@ -225,3 +225,11 @@ html {
   color: #f5b301;
   font-size: 14px;
 }
+
+.swiper-pagination-bullet-active {
+  background: #FF5F00 !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
